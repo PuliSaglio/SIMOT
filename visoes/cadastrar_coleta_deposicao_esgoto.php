@@ -214,7 +214,7 @@
     </tr>
     <tr>
         <td>Fossa Septica</td>
-        <td><input type="checkbox" name="fossa_septica" id="fossa_septica" ></td>
+        <td><input type="checkbox" name="fossa_septica" id="fossa_septica" value="Fossa septica"></td>
     </tr>
     <tr>
         <td>total Atendido (%)</td>
@@ -234,7 +234,7 @@
     </tr>
     <tr>
         <td>Fossa Rudimentar</td>
-        <td><input type="checkbox" name="fossa_rudimentar" id="fossa_rudimentar"></td>
+        <td><input type="checkbox" name="fossa_rudimentar" id="fossa_rudimentar" value="fossa rudimentar"></td>
     </tr>
     <tr>
         <td>total Atendido (%)</td>
@@ -254,11 +254,11 @@
     </tr>
     <tr>
         <td>Vala</td>
-        <td><input type="checkbox" name="vala" id="vala"></td>
+        <td><input type="checkbox" name="vala" id="vala" value="vala"></td>
     </tr>
     <tr>
         <td>total Atendido (%)</td>
-        <td><input type="number" name="total_atendido_vala" id="total_atendido_vala"></td>
+        <td><input type="number" name="total_atendido_vala" id="total_atendido_vala" ></td>
     </tr>
     <tr>
         <td>domicilios urbanos atendidos (%)</td>
@@ -274,7 +274,7 @@
     </tr>
     <tr>
         <td>Estaçao de Tratamento</td>
-        <td><input type="checkbox" name="estacao_tratamento" id="estacao_tratamento"></td>
+        <td><input type="checkbox" name="estacao_tratamento" id="estacao_tratamento" value="Estacao de tratamento"></td>
     </tr>
     <tr>
         <td>total Atendido (%)</td>
@@ -294,7 +294,7 @@
     </tr>
     <tr>
         <td>Esgoto Tratado</td>
-        <td><input type="checkbox" name="esgoto_tratado" id="esgoto_tratado"></td>
+        <td><input type="checkbox" name="esgoto_tratado" id="esgoto_tratado" value="esgoto tratado"></td>
     </tr>
     <tr>
         <td>total Atendido (%)</td>
@@ -314,7 +314,7 @@
     </tr>
     <tr>
         <td>Outros</td>
-        <td><input type="checkbox" name="outros" id="outros"></td>
+        <td><input type="checkbox" name="outros" id="outros" value="Outros"></td>
     </tr>
     <tr>
         <td>total Atendido (%)</td>
