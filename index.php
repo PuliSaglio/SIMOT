@@ -46,5 +46,10 @@
     <p><a href="visoes/cadastrar_coleta_deposicao_esgoto.php">Página de cadastro Coleta e Deposicao de Esgoto</a></p>
     <p><a href="visoes/editar_coleta_deposicao_esgoto.php">Página de atualizar Coleta e Deposicao de Esgoto</a></p>
     <p><a href="visoes/consultar_coleta_deposicao_esgoto.php">Ver Instancias Coleta e Deposicao de Esgoto</a></p>
+    <p>=================================================================================</p>
+    <p><a href="visoes/cadastrar_servicos_energia.php">Página de cadastro de Servicos Energia</a></p>
+    <p><a href="visoes/editar_servicos_energia.php">Página de atualizar Servicos de energia</a></p>
+    <p><a href="visoes/consultar_servicos_energia.php">Ver Servicos de energia</a></p>
+
 </body>
 </html> 
