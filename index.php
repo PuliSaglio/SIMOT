@@ -12,17 +12,14 @@
     <p><a href="visoes/editar_prefeitura.php">Página de atualizar</a></p>
     <p><a href="visoes/consultar_prefeituras.php">Ver prefeituras cadastradas</a></p>
     <p>=================================================================================</p>
-
     <p><a href="visoes/cadastrar_feriados.php">Página de cadastro feriados.</a></p>
     <p><a href="visoes/editar_feriados.php">Página de atualizar feriados</a></p>
     <p><a href="visoes/consultar_feriados.php">Ver feriados cadastrados</a></p>
     <p>=================================================================================</p>
-
     <p><a href="visoes/cadastrar_historico.php">Página de cadastro histórico</a></p>
     <p><a href="visoes/editar_historico.php">Página de atualizar históricos</a></p>
     <p><a href="visoes/consultar_historico.php">Ver historicos cadastrado</a></p>
     <p>=================================================================================</p>
-
     <p><a href="visoes/cadastrar_caracteristicas.php">Página de cadastro Caracteristicas</a></p>
     <p><a href="visoes/editar_caracteristicas.php">Página de atualizar Caracteristicas</a></p>
     <p><a href="visoes/consultar_caracteristicas.php">Ver Caracteristicas cadastrado</a></p>
@@ -41,7 +38,6 @@
     <p>=================================================================================</p>
     <p><a href="visoes/cadastrar_categoria_telefone.php">Página de cadastro categoria de telefone</a></p>
     <p><a href="visoes/consultar_categoria_telefone.php">Ver categorias de telefones</a></p>
-
     <p>=================================================================================</p>
     <p><a href="visoes/cadastrar_coleta_deposicao_esgoto.php">Página de cadastro Coleta e Deposicao de Esgoto</a></p>
     <p><a href="visoes/editar_coleta_deposicao_esgoto.php">Página de atualizar Coleta e Deposicao de Esgoto</a></p>
@@ -50,6 +46,5 @@
     <p><a href="visoes/cadastrar_servicos_energia.php">Página de cadastro de Servicos Energia</a></p>
     <p><a href="visoes/editar_servicos_energia.php">Página de atualizar Servicos de energia</a></p>
     <p><a href="visoes/consultar_servicos_energia.php">Ver Servicos de energia</a></p>
-
 </body>
 </html> 
