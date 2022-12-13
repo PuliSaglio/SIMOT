@@ -1,0 +1,126 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+footer{
+    background-color: rgb(25, 134, 25);
+    padding: 35px;
+}
+.row-footer{
+    max-width: 1400px;
+    padding: 0 4%;
+    margin: auto;
+}
+.row-footer{
+    display:flex;
+    flex-wrap: wrap;
+     
+}
+footer-col{
+    width: 25%;
+}
+.footer-col h4{
+    font-size: 18px;
+    color: black;
+    text-transform: uppercase;
+}
+.footer-col ul{
+    list-style: none;
+}
+.footer-col ul li a{
+    font-size: 15px;
+    color: azure;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+    color: azure;
+    padding-left: 10px;
+}
+body{
+   font-family: Georgia;
+    background-color: rgba(2, 1, 1, 0.936);
+}
+h1{ color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 2.3cm;
+    font-weight: 150;
+    font-family: Georgia;
+}
+h2{ color: rgb(19, 18, 18);
+    text-align: left;
+    font-size: 1.6cm;
+    font-weight: 100;
+    font-family: Georgia;
+}
+.inicio{
+
+    background-color: rgba(133, 130, 130, 0.936);  
+    border: 10px;
+    height: 800px;
+    text-align: var();
+    padding: 70px;
+
+}
+.inicio nav a{
+    color: black;
+}
+
+.inicio h1{
+    
+    height: auto;
+}
+
+main{    
+    text-align: justify;
+    font-family: Georgia;
+    margin: 2cm;
+}
+table{
+    border-spacing: 25px;
+    text-align: center;
+    background-color: rgba(12, 9, 9, 0.936);
+    width: 100%;
+    height: 30px;
+    text-decoration: none;
+    text-transform: uppercase
+}
+.id{
+    text-align: justify;    
+}
+.nome{
+    width: 100%;
+    background-color: rgb(19, 71, 29);
+    height: 100px;
+}
+.rodape{
+    background-color: rgba(37, 90, 11, 0.699);
+    text-align: center;
+    font-family: Georgia;
+    color: rgb(31, 8, 8);
+   
+}
+.fundo{
+    background-color:rgb(2, 2, 2);  
+    font-family: Georgia;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    height: 120px;
+    font-color: black;
+}
+
+h2{
+    font-size: 80px;
+}
+
+
+
+.rodape-espacamento
+{
+    padding: 50px;
+}
