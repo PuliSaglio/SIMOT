@@ -13,7 +13,7 @@
     }
     .b{
       margin-top: 30px;
-      background-color: rgb(192, 249, 172);
+      background-color: rgb(194, 252, 173);
       color: darkgreen;
     }
     .d1{
@@ -26,17 +26,42 @@
         background-color: rgb(127, 239, 92); 
     }
     .carousel-item{
-      height: 200px;
+      color: black;
     }
-    nav{
+    .nav{
       height: 150px;
+     
+
     }
     .simot{
-      font-size: 400%;
+      font-size: 80px;
       color:rgb(0, 0, 0) ;
       text-align: left;
       font-family: Georgia;
     }
+    h2{
+      font-size: 30px;
+    }
+    h3{
+      font-size: 70px;
+      text-align: left;
+   
+    }
+    h5{
+      text-align: left;
+      font-size: 30px;
+    }
+    h6{
+      font-size: 20px;
+      text-align:left;
+    }
+     h1{
+      text-align: left;
+      font-size: 70px;
+     }
+    
+     
+
       </style>
 
 </head>
@@ -45,14 +70,14 @@
 
     <nav class="navbar navbar-expand-lg navbar fundo">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"> <img src="logosimot.jpeg" alt="" width="120px"></a>
+          <a class="navbar-brand" href="#"> <img src="logosimot.jpeg" alt="" width="115px"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#i">Sobre o SIMOT</a>
+                <a class="nav-link active" aria-current="page" href="#i">Cidades</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#o">Suporte</a>
@@ -69,12 +94,11 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#1">Login</a>
+                <a class="nav-link" href="#1">serviços</a>
               </li>
             </ul>
             <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">pesquisar</button>
+              <button class="btn btn-outline-success" type="submit">Login</button>
             </form>
           </div>
         </div>
@@ -83,10 +107,58 @@
 
 
   <div class="pd-4 inicio">
-    <h1 class="simot">Somos o Sistema Municipal de Inventário Turístico </h1>
-    <h2>sla qqr coisa</h2>
-    <button class="btn b btn-success " type="submit">saiba mais</button>
+    <h1 class="simot mt-5 mb-md-4">Inventário Turístico </h1>
+
+    <h2>SIMOT é o nome dado ao inventário turístico...</h2>
+   
   </div>
+
+
+
+
+
+
+  <div class="container">
+    <!-- primeria linha -->
+    <div class="row">
+      <div class="col mt-5">
+      <!--Aqui vem uma foto-->
+        <img src="exemplo.jpeg" alt="" class="img-fluid w-100" />
+      </div>
+      <div class="col">
+               
+      <h3 class=" col-16 mt-5 mb-md-0">Te ajudamos 
+        <p>a se localizar. </p> </h3>
+          <h5 class=" col-30 mb-3 mb-md-4 text-align">Endereços, avaliações, monumentos,
+            <p>
+             praias e tudo que uma cidade tem a oferecer.</p>
+          </h5> </p>
+          <p>
+          <h6>Somos um time focado em te ajudar a aproveitar.</h6> </p>
+      </div>
+    </div>
+
+    <!-- Segunda linha -->
+    <div class="row mt-5">
+      <div class="col">
+               
+        <h3 class=" col-16 mt-4 mb-md-0">Te ajudamos 
+          <p>a se localizar. </p> </h3>
+            <h5 class=" col-30 mb-3 mb-md-4">Endereços, avaliações, monumentos,
+              <p>
+               praias e tudo que uma cidade tem a oferecer.</p>
+            </h5> </p>
+            <p>
+            <h6>Somos um time focado em te ajudar a aproveitar.</h6> </p>
+      </div>
+      <div class="col mt-5">
+       <!--Segunda imagem lateral-->
+        <img src="exemplo.jpeg" alt="" class="img-fluid w-100" />
+      </div>
+    </div>
+  </div>
+
+
 
 
   <main>
@@ -121,43 +193,59 @@
                 </button>
               </div>    
         </div>
-    <div class="row">     
-    <h3 id="i">Sobre o SIMOT</h3> 
-           <p> OBJETIVO: No mercado turístico, o inventário divulga a oferta turística para os prestadores de serviços e turistas em potencial,
-            frequentemente, por meio do portal/site da prefeitura.</p>
-           <p> Daí surge a questão, como otimizar este processo deixando-o mais rápido, econômico e confiável? 
-            A hipótese é que será possível criar um software que facilite, agilize e deixe mais confiável o processo de inventariação da oferta turística municipal.
-            A pesquisa manual atual gera um grande volume de dados no formato escrito em papel, que devem ser organizados, migrados para plataformas digitais de
-            armazenamento de dados, para em seguida, serem analisados e compilados para formatos que permitam um melhor entendimento e visualização das informações 
-            coletadas.</p>
-           <p> Esse processo de coleta e armazenamento de dados, além de ser oneroso por precisar de várias pessoas que visitem os locais a serem inventariados, e de 
-            vários formulários a serem preenchidos, pode causar erros, distorções ou dados errados na alimentação do banco de dados, seja por uma incompreensão da 
-            informação posta nos formulários, pela inserção de dados errados, o não preenchimento de dados obrigatórios. O objetivo é melhorar este processo  tão 
-            demorado usado um software.</p>
-            <p>VANTAGENS: O inventário da oferta turística serve como um repositório de informações sobre o destino, pois reúne dados essenciais, organizados
-            + e contextualizados sobre a localidade, tendo ainda, a possibilidade de menos erros.</p>
-    </div>
 </div>
 </main>
 
-<div class="container-fluid rodape">
-
-         <div class="row">
-                <div class="col-4">
-        <h5 id="o">SUPORTE</h5>
-                </div><div class="col-4">
-        <h5 id="s" >EQUIPE:</h5>
-            <p>Eberton</p>
-            <p>Felipe</p>
-            <p>Catarini</p>
-            <p>Sara</p>
-            <p>Ignacio</p>
-            <p>Anderson</p>
-                </div><div class="col-4">
-        <h5 id="3">Redes Sociais</h5>
-               </div>
+<footer>
+  <div class="row">
+    <div class="col">
+      <img src="logosimot.jpeg" alt="" class="img-fluid" width="115px" />
     </div>
-</div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-4 col-12 p-5 text-center">
+      
+      <h4>Fale conosco</h4>
+      <ul>
+        <p><a href="">11111111111</a></p>
+        <p><a href="">11111111111</a></p>
+        <p><a href="">11111111111</a></p>
+      </ul>
+    </div>
+
+    <div class="col-md-4 col-12 p-5 text-center">
+      <h4>Desenvolvedores</h4>
+      <ul>
+        <p><a href="">aaaaaa</a></p>
+        <p> <a href="">bbbbbb</a></p>
+        <p> <a href="">ccccc</a></p>
+        <p> <a href="">ddddd</a></p>
+        <p> <a href="">eeeee</a></p>
+        <p> <a href="">fffff</a></p>
+      </ul>
+    </div>
+
+    <div class="col-md-4 col-12 p-5 text-center">
+      <h4>Endereço</h4>
+      <ul> 
+          <a href="">aaaaaa</a>
+        </ul>
+        <div class= "col-md-15 mt-5" >
+        <a href=""></a></div>
+        <img src="funcern.JPEG" alt="" class="img-fluid" width="115px"  />
+      <!--Imagens da FUNCERN e parceiros aqui-->
+     
+      </div>
+    </div>
+  </div>
+  
+
+ 
+  
+  
+</footer>
   
 
 
