@@ -23,7 +23,7 @@
 
         if($msg == ""){
             $con = abrirConexao();
-            $sql = "INSERT INTO Feriados (nome_feriado, data_feriado, fkid_municipios) VALUES ('$nome_feriado', '$data_feriado', '$fkid_municipios');";
+            $sql = "INSERT INTO feriados (nome_feriado, data_feriado, fkid_municipios) VALUES ('$nome_feriado', '$data_feriado', '$fkid_municipios');";
 
             if(mysqli_query($con, $sql)){
                 echo "Cadastro realizado com sucesso! Verificar cadastro no <a href='consultar_feriados.php'>Consultar feriados cadastrados</a>.";
@@ -85,7 +85,7 @@
     function excluirFeriado($id_feriados){
         $con = abrirConexao();
 
-        $sql = "DELETE FROM bdsimot.Feriados WHERE id_feriados = ".$id_feriados.";";
+        $sql = "DELETE FROM feriados WHERE id_feriados = '$id_feriados'";
 
         if(mysqli_query($con, $sql)){
             $msg = "Excluída.";

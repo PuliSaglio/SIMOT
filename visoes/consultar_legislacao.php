@@ -9,7 +9,9 @@
     </style>
 </head>
 <body>
-<a href="../index.php">Voltar à página inicial</a>
+    <p><a href="../index.php">Voltar à página inicial</a></p>
+    <p><a href="view_legislacao.php">Voltar à Legislação</a></p>
+
     <table border = "2" class="a">
         <tr>
             <td colspan = "24"> <h2>Prefeituras cadastradas</h2></td>
@@ -58,8 +60,8 @@
                 echo "<td>".$plano_diretor."</td>";
                 echo "<td>".$fmt."</td>";
                 echo "<td>".$outras."</td>";
-                echo "<td> <a href = 'editar_legislacao.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
-                echo "<td> <a href = 'excluir_legislacao.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
+                echo "<td> <a href = 'view_legislacao.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
+                echo "<td> <a href = 'view_legislacao.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
 
         }
 

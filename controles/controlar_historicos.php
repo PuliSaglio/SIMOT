@@ -34,7 +34,7 @@
         
         if($msg == "") {
             $con = abrirConexao();
-            $sql = "INSERT INTO Historico_Municipio (fkid_municipios, origem_nome, data_fundacao, data_emancipacao, fundadores, outros_fatos) VALUES ('$fkid_municipios', '$origem_nome', '$data_fundacao', '$data_emancipacao', '$fundadores', '$outros_fatos');";
+            $sql = "INSERT INTO historico_municipio (fkid_municipios, origem_nome, data_fundacao, data_emancipacao, fundadores, outros_fatos) VALUES ('$fkid_municipios', '$origem_nome', '$data_fundacao', '$data_emancipacao', '$fundadores', '$outros_fatos');";
 
             if(mysqli_query($con, $sql)){
                 echo "Cadastro realizado com sucesso! Verificar cadastro no <a href='consultar_historico.php'>banco de dados</a>.";
@@ -102,17 +102,14 @@
     function excluirHistorico($fkid_municipios){
 
         $con = abrirConexao();
-        $sql = "DELETE FROM bdsimot.Historico_Municipio WHERE fkid_municipios = " .$fkid_municipios.";";
+        $sql = "DELETE FROM historico_municipio WHERE fkid_municipios = '$fkid_municipios'";
 
         if(mysqli_query($con, $sql)){
-            $msg = "Excluída.";
+            echo "Excluido com sucesso! consultar em <a href='consultar_historico.php'>Listar Historico</a>";
         } else {
-            $msg = "Não excluída.";
+            echo "Erro! Nao pode ser excluido :(";
         }
-
         mysqli_close($con);
-        return $msg;
     }
-
 
 ?>

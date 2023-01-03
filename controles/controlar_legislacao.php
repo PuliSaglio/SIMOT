@@ -3,7 +3,7 @@
     include "../controles/a_conexao.php";
 
     
-    function verificarEntradas($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultural, $incentivos_fiscais_turismo, $plano_diretor, $fmt) {
+    function verificarEntradas($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultura, $incentivos_fiscais_turismo, $plano_diretor, $fmt) {
 
         if($fkid_municipios == ""){
             return "Informe o identificador.";
@@ -24,7 +24,7 @@
             return "Informe a Proteção ambiental.";
         }
 
-        if($apoio_cultural == ""){
+        if($apoio_cultura == ""){
             return "Informe o Apoio à cultura";
         }
 
@@ -44,13 +44,13 @@
 
     }
 
-    function cadastrarLegislacao($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultural, $incentivos_fiscais_turismo, $plano_diretor, $fmt, $outras){
+    function cadastrarLegislacao($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultura, $incentivos_fiscais_turismo, $plano_diretor, $fmt, $outras){
 
-        $msg = verificarEntradas($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultural, $incentivos_fiscais_turismo, $plano_diretor, $fmt);
+        $msg = verificarEntradas($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultura, $incentivos_fiscais_turismo, $plano_diretor, $fmt);
 
         if($msg == "") {
             $con = abrirConexao();
-            $sql = "INSERT INTO Legislacao_Municipal (fkid_municipios, lei_organica, ocupacao_solo, pdt, protecao_ambiental, apoio_cultura, incentivos_fiscais_turismo, plano_diretor, fmt, outras) VALUES ('$fkid_municipios', '$lei_organica', '$ocupacao_solo', '$pdt', '$protecao_ambiental', '$apoio_cultural', '$incentivos_fiscais_turismo', '$plano_diretor', '$fmt', '$outras');";
+            $sql = "INSERT INTO Legislacao_Municipal (fkid_municipios, lei_organica, ocupacao_solo, pdt, protecao_ambiental, apoio_cultura, incentivos_fiscais_turismo, plano_diretor, fmt, outras) VALUES ('$fkid_municipios', '$lei_organica', '$ocupacao_solo', '$pdt', '$protecao_ambiental', '$apoio_cultura', '$incentivos_fiscais_turismo', '$plano_diretor', '$fmt', '$outras');";
 
             if(mysqli_query($con, $sql)){
                 echo "Legislação cadastrada com sucesso! Verificar cadastro no <a href='consultar_legislacao.php'>banco de dados</a>";
@@ -67,7 +67,7 @@
 
     function pegarLegislacao($fkid_municipios){
         $con = abrirConexao();
-        $sql = "SELECT * FROM Legislacao_Municipal WHERE fkid_municipios = ".$fkid_municipios.";";
+        $sql = "SELECT * FROM legislacao_municipal WHERE fkid_municipios = ".$fkid_municipios.";";
 
         $result = mysqli_query($con, $sql);
         mysqli_close($con);
@@ -77,7 +77,7 @@
 
     function listarLegislacao(){
         $con = abrirConexao();
-        $sql = "SELECT * FROM Legislacao_Municipal;";
+        $sql = "SELECT * FROM legislacao_municipal;";
 
         $resultadoListagem = mysqli_query($con, $sql);
         mysqli_close($con);
@@ -88,21 +88,21 @@
 
     }
 
-    function editarLegislacao($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultural, $incentivos_fiscais_turismo, $plano_diretor, $fmt, $outras){
+    function editarLegislacao($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultura, $incentivos_fiscais_turismo, $plano_diretor, $fmt, $outras){
 
-        $msg = verificarEntradas($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultural, $incentivos_fiscais_turismo, $plano_diretor, $fmt);
+        $msg = verificarEntradas($fkid_municipios, $lei_organica, $ocupacao_solo, $pdt, $protecao_ambiental, $apoio_cultura, $incentivos_fiscais_turismo, $plano_diretor, $fmt);
 
         if($msg == ""){
 
             $con = abrirConexao();
 
             //nome da tabela, =, '', variavel, ",", eterno retorno
-            $sql = "UPDATE Legislacao_Municipal SET 
+            $sql = "UPDATE legislacao_municipal SET 
             lei_organica = '$lei_organica',
             ocupacao_solo = '$ocupacao_solo',
             PDT = '$pdt',
             protecao_ambiental = '$protecao_ambiental',
-            apoio_cultura = '$apoio_cultural',
+            apoio_cultura = '$apoio_cultura',
             incentivos_fiscais_turismo = '$incentivos_fiscais_turismo',
             plano_diretor = '$plano_diretor',
             FMT = '$fmt',
@@ -125,16 +125,15 @@
     function excluirLegislacao($fkid_municipios){
 
         $con = abrirConexao();
-        $sql = "DELETE FROM bdsimot.Legislacao_Municipal WHERE fkid_municipios = ".$fkid_municipios.";";
+        $sql = "DELETE FROM legislacao_municipal WHERE fkid_municipios = '$fkid_municipios'";
 
         if(mysqli_query($con, $sql)){
-            $msg =  "Legislação excluída.";
+            echo "Excluido com sucesso! Verificar no <a href='consultar_legislacao.php'>banco de dados</a>";
         } else {
-            $msg =  "Legislação não pode ser  excluída.";
+            echo "Erro, não pode ser excluida :(";
         }
 
         mysqli_close($con);
-        return $msg;
 
     }
 

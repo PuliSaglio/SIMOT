@@ -19,7 +19,8 @@
 </head>
 <body>
 
-    <a href="../index.php">Voltar à página inicial</a>
+    <p><a href="../index.php">Voltar à página inicial</a></p>
+    <p><a href="view_caracteristicas.php">Voltar às Caracteristicas</a></p>
     <table border = "2">
         <tr>
             <td colspan = "24"> <h2>Prefeituras cadastradas</h2></td>
@@ -95,8 +96,8 @@
             echo "<td>" .$meses_mais_chuvosos. "</td>";
             echo "<td>" .$meses_menos_chuvosos. "</td>";
             echo "<td>" .$principais_atv_economicas. "</td>";
-            echo "<td> <a href = 'editar_caracteristicas.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
-            echo "<td> <a href = 'excluir_caracteristicas.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
+            echo "<td> <a href = 'view_caracteristicas.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
+            echo "<td> <a href = 'view_caracteristicas.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
         }
         ?>
         </tr>
