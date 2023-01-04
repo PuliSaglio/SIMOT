@@ -18319,7 +18319,7 @@ h1.display-3 {
 }
 
 .text-color-primary {
-    color: #d51482 !important
+    color: #18d61b !important
 }
 
 .text-color-primary h1,
@@ -18329,7 +18329,7 @@ h1.display-3 {
 .text-color-primary h5,
 .text-color-primary h6,
 .text-color-primary p {
-    color: #d51482 !important
+    color: #18d61b !important
 }
 
 .text-color-white {
@@ -18348,7 +18348,7 @@ h1.display-3 {
 }
 
 .text-color-secondary {
-    color: #192c85 !important
+    color: #08a805 !important
 }
 
 .text-color-secondary h1,
@@ -18358,15 +18358,15 @@ h1.display-3 {
 .text-color-secondary h5,
 .text-color-secondary h6,
 .text-color-secondary p {
-    color: #192c85 !important
+    color: #08a805 !important
 }
 
 .text-color-1 {
-    color: #212529 !important
+    color: #1d2b1a !important
 }
 
 .text-color-2 {
-    color: #22252f !important
+    color: #1d2b1a !important
 }
 
 .text-color-2 h1,
@@ -18376,7 +18376,7 @@ h1.display-3 {
 .text-color-2 h5,
 .text-color-2 h6,
 .text-color-2 p {
-    color: #22252f !important
+    color: #1d2b1a !important
 }
 
 .text-color-3 {
@@ -23866,7 +23866,7 @@ body {
     --wp--preset--color--pale-pink: #f78da7;
     --wp--preset--color--vivid-red: #cf2e2e;
     --wp--preset--color--luminous-vivid-orange: #ff6900;
-    --wp--preset--color--luminous-vivid-amber: #fcb900;
+    --wp--preset--color--luminous-vivid-amber: ;
     --wp--preset--color--light-green-cyan: #7bdcb5;
     --wp--preset--color--vivid-green-cyan: #00d084;
     --wp--preset--color--pale-cyan-blue: #8ed1fc;
