@@ -82,7 +82,7 @@
             $con = abrirConexao();
 
              //nome da tabela, =, '', variavel, ",", eterno retorno
-            $sql = "UPDATE bdsimot.Instancias_Governanca SET 
+            $sql = "UPDATE instancias_governanca SET 
             municipal = '$municipal', 
             estadual = '$estadual', 
             regional = '$regional', 
@@ -104,17 +104,15 @@
     
     function excluirInstancias($fkid_municipios){
         $con = abrirConexao();
-        $sql = "DELETE FROM bdsimot.Instancias_Governanca WHERE fkid_municipios = " .$fkid_municipios. ";";
+        $sql = "DELETE FROM instancias_governanca WHERE fkid_municipios = '$fkid_municipios'";
 
         if(mysqli_query($con, $sql)){
-            $msg =  "Prefeitura excluída.";
+            echo "Excluida com Sucesso! Verificar em <a href='consultar_instancias.php'>Consultar banco de dados</a>";
         } else {
-            $msg =  "Prefeitura não pode ser  excluída.";
+            $msg =  "ERRO!Não pode ser  excluída :(";
         }
 
         mysqli_close($con);
-        return $msg;
-
     }
     
 

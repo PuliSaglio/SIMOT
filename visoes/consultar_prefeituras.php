@@ -19,7 +19,8 @@
 </head>
 <body>
 
-    <a href="../index.php">Voltar à página inicial</a>
+    <p><a href="../index.php">Voltar à página inicial</a></p>
+    <p><a href="view_prefeitura.php">Voltar à prefeitura</a></p>
     <table border = "2">
         <tr>
             <td colspan = "24"> <h2>Prefeituras cadastradas</h2></td>
@@ -98,31 +99,11 @@
             echo "<td>" .$nome_prefeito. "</td>";
             echo "<td>" .$aniversario_municipal. "</td>";
             echo "<td>" .$santo_padroeiro. "</td>";
-            echo "<td> <a href = 'editar_prefeitura.php?id_municipios=".$registro["id_municipios"]."'>Editar</a> </td>";
+            echo "<td> <a href = 'view_prefeitura.php?id_municipios=".$registro["id_municipios"]."'>Editar</a> </td>";
             echo "<td> <a href = 'excluir_prefeitura.php?id_municipios=".$registro["id_municipios"]."'>Excluir</a> </td>";
-           
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-
-
-
         }
-
         ?>
-        </tr>
-
-
-
-    
+        </tr>    
     </table>
     
 </body>

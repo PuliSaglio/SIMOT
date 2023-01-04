@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="../index.php">Voltar</a>
+    <p><a href="../index.php">Voltar</a></p>
+    <p><a href="view_instancias.php">Voltar às Instancias</a></p>
     <table border = "2">
         <tr>
             <td><h2>Instâncias de Governança</h2></td>
@@ -44,8 +45,8 @@
                     echo "<td>".$regional."</td>";
                     echo "<td>".$nacional."</td>";
                     echo "<td>".$internacional."</td>";
-                    echo "<td> <a href='editar_instancias.php?fkid_municipios = ".$registro["fkid_municipios"]."'>Editar</a> </td>";
-                    echo "<td> <a href='excluir_instancias.php?fkid_municipios = ".$registro["fkid_municipios"]."'>Excluir</a> </td>";
+                    echo "<td> <a href='view_instancias.php?fkid_municipios = ".$registro["fkid_municipios"]."'>Editar</a> </td>";
+                    echo "<td> <a href='view_instancias.php?fkid_municipios = ".$registro["fkid_municipios"]."'>Excluir</a> </td>";
 
 
             }

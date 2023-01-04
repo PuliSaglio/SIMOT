@@ -2,7 +2,7 @@
 
     include "../controles/a_conexao.php";
      
-    function verificarEntradas($nome_municipio, $uf, $regiao_turistica, $logradouro, $numero, $bairro, $email, $cnpj, $latitude, $longitude, $distancia_capital, $qtd_Funcionarios, $qtd_funcionarios_deficiencia, $nome_prefeito, $aniversario_municipal, $santo_padroeiro){
+    function verificarEntradas($nome_municipio, $uf, $regiao_turistica, $logradouro, $numero, $bairro, $email, $cnpj, $latitude, $longitude, $distancia_capital_km, $qtd_Funcionarios, $qtd_funcionarios_deficiencia, $nome_prefeito, $aniversario_municipal, $santo_padroeiro){
 
         if($nome_municipio == ""){
             return "Informe o nome do municipio.";
@@ -25,7 +25,7 @@
         if($longitude == ""){
             return "Informe a longitude.";
         }
-        if($distancia_capital == ""){
+        if($distancia_capital_km == ""){
             return "Informe a distância da capital.";
         }
         if($qtd_Funcionarios == "") {
@@ -49,13 +49,13 @@
     }
 
 
-    function cadastrarPrefeitura($nome_municipio, $uf, $regiao_turistica, $logradouro, $numero, $complemento, $bairro, $email, $site, $cnpj, $latitude, $longitude, $distancia_capital, $qtd_Funcionarios, $qtd_funcionarios_deficiencia, $nome_prefeito, $aniversario_municipal, $santo_padroeiro){
+    function cadastrarPrefeitura($nome_municipio, $uf, $regiao_turistica, $logradouro, $numero, $complemento, $bairro, $email, $site, $cnpj, $latitude, $longitude, $distancia_capital_km, $qtd_Funcionarios, $qtd_funcionarios_deficiencia, $nome_prefeito, $aniversario_municipal, $santo_padroeiro){
 
-        $msg = verificarEntradas($nome_municipio, $uf, $regiao_turistica, $logradouro, $numero, $bairro,   $email, $cnpj, $latitude, $longitude, $distancia_capital, $qtd_Funcionarios, $qtd_funcionarios_deficiencia, $nome_prefeito, $aniversario_municipal, $santo_padroeiro);
+        $msg = verificarEntradas($nome_municipio, $uf, $regiao_turistica, $logradouro, $numero, $bairro, $email, $cnpj, $latitude, $longitude, $distancia_capital_km, $qtd_Funcionarios, $qtd_funcionarios_deficiencia, $nome_prefeito, $aniversario_municipal, $santo_padroeiro);
 
         if($msg == "") {
             $con = abrirConexao();
-                $sql = "INSERT INTO Infobas_Municipios (nome_municipio, uf, regiao_turistica, logradouro, numero, complemento, bairro, email, site, cnpj, latitude, longitude, distancia_capital_km, qtd_Funcionarios, qtd_funcionarios_deficiencia, nome_prefeito, aniversario_municipal, santo_padroeiro) VALUES ('$nome_municipio', '$uf', '$regiao_turistica', '$logradouro', '$numero', '$complemento', '$bairro', '$email', '$site', '$cnpj', '$latitude', '$longitude', '$distancia_capital', '$qtd_Funcionarios', '$qtd_funcionarios_deficiencia', '$nome_prefeito', '$aniversario_municipal', '$santo_padroeiro')";
+                $sql = "INSERT INTO Infobas_Municipios (nome_municipio, uf, regiao_turistica, logradouro, numero, complemento, bairro, email, site, cnpj, latitude, longitude, distancia_capital_km, qtd_Funcionarios, qtd_funcionarios_deficiencia, nome_prefeito, aniversario_municipal, santo_padroeiro) VALUES ('$nome_municipio', '$uf', '$regiao_turistica', '$logradouro', '$numero', '$complemento', '$bairro', '$email', '$site', '$cnpj', '$latitude', '$longitude', '$distancia_capital_km', '$qtd_Funcionarios', '$qtd_funcionarios_deficiencia', '$nome_prefeito', '$aniversario_municipal', '$santo_padroeiro')";
 
                 if(mysqli_query($con, $sql)){
                     echo "Cadastro realizado com sucesso! <a href='consultar_prefeituras.php'>Consultar prefeituras cadastradas.</a>";
@@ -86,6 +86,15 @@
 
         $con = abrirConexao();
         $sql = "SELECT * FROM Infobas_Municipios;";
+        $resultadoListagem = mysqli_query($con, $sql);
+        mysqli_close($con);
+
+        return $resultadoListagem;
+    }
+
+    function listarNomePrefeituras(){
+        $con = abrirConexao();
+        $sql = "SELECT id_municipios ,nome_municipio FROM Infobas_Municipios;";
         $resultadoListagem = mysqli_query($con, $sql);
         mysqli_close($con);
 
@@ -134,19 +143,15 @@
     function excluirPrefeitura($id_municipios){
         $con = abrirConexao();
 
-        $sql = "DELETE FROM bdsimot.Infobas_Municipios WHERE id_municipios = ".$id_municipios.";";
+        $sql = "DELETE FROM infobas_municipios WHERE id_municipios='$id_municipios'";
 
-        if(mysqli_query($con, $sql)){
-            $msg = "Excluída.";
-        } else {
-            $msg = "Não excluída.";
+        if(mysqli_query($con, $sql)) {
+            echo "Excluido com sucesso! Verificar no <a href='consultar_prefeituras.php'>banco de dados</a>";
+        }else{
+           echo "Erro, não pode ser excluida :(";
         }
 
         mysqli_close($con);
-        return $msg;
-    }
-
-  
-
+    }  
 
 ?>

@@ -19,7 +19,8 @@
 </head>
 <body>
 
-    <a href="../index.php">Voltar</a>
+    <p><a href="../index.php">Voltar à Pagina inicial</a></p>
+    <p><a href="view_feriados.php">Voltar aos Feriados</a></p>
     <table border = "2">
         <tr>
             <td>Feriados do município</td>
@@ -49,8 +50,8 @@
                 echo "<td>" .$nome_feriado. "</td>";
                 echo "<td>" .$data_feriado. "</td>";
                 echo "<td>" .$fkid_municipios. "</td>";
-                echo "<td> <a href = 'editar_feriados.php?id_feriados=".$registro["id_feriados"]."'>Editar</a> </td>";
-                echo "<td> <a href = 'excluir_feriados.php?id_feriados=".$registro["id_feriados"]."'>Excluir</a> </td>";
+                echo "<td> <a href = 'view_feriados.php?id_feriados=".$registro["id_feriados"]."'>Editar</a> </td>";
+                echo "<td> <a href = 'view_feriados.php?id_feriados=".$registro["id_feriados"]."'>Excluir</a> </td>";
             }
         
         ?>

@@ -7,30 +7,19 @@
     <title>Document</title>
 </head>
 <body>
+    <p><a href="visoes/pesquisar_prefeituras.php">PESQUISAR PREFEITURAS</a></p>
     <p>=================================================================================</p>
-    <p><a href="visoes/cadastrar_prefeitura.php">Página de cadastro de prefeitura.</a></p>
-    <p><a href="visoes/editar_prefeitura.php">Página de atualizar</a></p>
-    <p><a href="visoes/consultar_prefeituras.php">Ver prefeituras cadastradas</a></p>
+    <p><a href="visoes/view_prefeitura.php">GERENCIAR PREFEITURAS</a></p>
     <p>=================================================================================</p>
-    <p><a href="visoes/cadastrar_feriados.php">Página de cadastro feriados.</a></p>
-    <p><a href="visoes/editar_feriados.php">Página de atualizar feriados</a></p>
-    <p><a href="visoes/consultar_feriados.php">Ver feriados cadastrados</a></p>
+    <p><a href="visoes/view_feriados.php">GERENCIAR FERIADOS</a></p>
     <p>=================================================================================</p>
-    <p><a href="visoes/cadastrar_historico.php">Página de cadastro histórico</a></p>
-    <p><a href="visoes/editar_historico.php">Página de atualizar históricos</a></p>
-    <p><a href="visoes/consultar_historico.php">Ver historicos cadastrado</a></p>
+    <p><a href="visoes/view_historico.php">GERENCIAR HISTÓRICOS</a></p>
     <p>=================================================================================</p>
-    <p><a href="visoes/cadastrar_caracteristicas.php">Página de cadastro Caracteristicas</a></p>
-    <p><a href="visoes/editar_caracteristicas.php">Página de atualizar Caracteristicas</a></p>
-    <p><a href="visoes/consultar_caracteristicas.php">Ver Caracteristicas cadastrado</a></p>
+    <p><a href="visoes/view_caracteristicas.php">GERENCIAR CARACTERÍSTICAS</a></p>
     <p>=================================================================================</p>
-    <p><a href="visoes/cadastrar_instancias.php">Página de cadastro Instancias</a></p>
-    <p><a href="visoes/editar_instancias.php">Página de atualizar Instancias</a></p>
-    <p><a href="visoes/consultar_instancias.php">Ver Instancias cadastrado</a></p>
+    <p><a href="visoes/view_instancias.php">GERENCIAR INSTANCIAS</a></p>
     <p>=================================================================================</p>
-    <p><a href="visoes/cadastrar_legislacao.php">Página de cadastro Legislaçao</a></p>
-    <p><a href="visoes/editar_legislacao.php">Página de atualizar Legislaçao</a></p>
-    <p><a href="visoes/consultar_legislacao.php">Ver Instancias Legislaçao</a></p>
+    <p><a href="visoes/view_legislacao.php">GERENCIAR LEGISLAÇOES</a></p>
     <p>=================================================================================</p>
     <p><a href="visoes/cadastrar_abastecimento_agua.php">Página de cadastro Abastecimento Agua</a></p>
     <p><a href="visoes/editar_abastecimento_agua.php">Página de atualizar Abastecimto Agua</a></p>

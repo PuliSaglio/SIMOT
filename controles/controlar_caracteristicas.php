@@ -148,16 +148,15 @@
     function excluirCaracteristicas($fkid_municipios){
         $con = abrirConexao();
 
-        $sql = "DELETE FROM bdsimot.caracteristicas_municipios WHERE fkid_municipios = ".$fkid_municipios.";";
+        $sql = "DELETE FROM caracteristicas_municipios WHERE fkid_municipios = '$fkid_municipios'";
 
         if(mysqli_query($con, $sql)){
-            $msg = "Excluída.";
+            echo "Excluida com Sucesso! Verificar em <a href='consultar_caracteristicas.php'>Consultar banco de dados</a>";
         } else {
-            $msg = "Não excluída.";
+            echo "ERRO! Não pode ser excluída :(";
         }
 
         mysqli_close($con);
-        return $msg;
     }
 
   
