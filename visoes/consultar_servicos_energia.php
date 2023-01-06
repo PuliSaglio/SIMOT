@@ -19,7 +19,8 @@
 </head>
 <body>
 
-    <a href="../index.php">Voltar à página inicial</a>
+    <p><a href="../index.php">Voltar à página inicial</a></p>
+    <p><a href="./form_a1.php">Voltar ao Formulario</a></p>
     <table border = "2">
         <tr>
             <td colspan = "24"> <h2>servicos de energia cadastrados</h2></td>
@@ -51,7 +52,7 @@
 
         <?php
 
-        include "../controles/controlar_servicos_energia.php";
+        include "../controles/controle.php";
 
         $result = listarServicosEnergia();
 
@@ -99,8 +100,8 @@
             echo "<td>" .$total_abastecido_outros_tipos. "</td>";
             echo "<td>" .$domicilios_urbanos_atendidos_outros_tipos. "</td>";
             echo "<td>" .$entidade_responsavel_outros_tipos. "</td>";
-            echo "<td> <a href = 'editar_servicos_energia.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
-            //echo "<td> <a href = 'excluir_caracteristicas.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
+            echo "<td> <a href = 'form_a1.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
+            echo "<td> <a href = 'form_a1.php?fkid_municipios=" . $registro["fkid_municipios"] . "'>Excluir</a> </td>";
         }
         ?>
         </tr>

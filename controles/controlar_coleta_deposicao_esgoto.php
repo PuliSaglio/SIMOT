@@ -3,7 +3,7 @@
     include "../controles/a_conexao.php";
 
     
-    function verificarEntradas($fkid_municipios) {
+    function verificarEntradasColetaDeposicaoEsgoto($fkid_municipios) {
 
         if($fkid_municipios == ""){
             return "Informe o fkid do municipio";
@@ -18,7 +18,7 @@
     $domicilios_urbanos_atendidos_estacao, $domicilios_rurais_atendidos_estacao, $entidade_responsavel_estacao_tratamento, $esgoto_tratado, $total_atendido_esgoto_tratado, $domicilios_urbanos_atendidos_esgoto_tratado,
     $domicilios_rurais_atendidos_esgoto_tratado, $entidade_responsavel_esgoto_tratado, $outros, $total_atendido_outros, $domicilios_urbanos_atendidos_outros, $domicilios_rurais_atendidos_outros, $entidade_responsavel_outros){
 
-        $msg = verificarEntradas($fkid_municipios);
+        $msg = verificarEntradasColetaDeposicaoEsgoto($fkid_municipios);
 
         if($msg == "") {
             $con = abrirConexao();
@@ -46,7 +46,7 @@
         return array($msg);
     }
 
-    function pegarColeta_Deposicao_Esgoto($idColetaDeposicao){
+    function pegarColetaDeposicaoEsgoto($idColetaDeposicao){
         $con = abrirConexao();
         $sql = "SELECT * FROM servicos_esgoto_coleta_deposicao WHERE id_ColetaDeposicao = ".$idColetaDeposicao.";";
 
@@ -56,7 +56,7 @@
         return $result;
     }
 
-    function listarColeta_Deposicao_Esgoto(){
+    function listarColetaDeposicaoEsgoto(){
         $con = abrirConexao();
         $sql = "SELECT * FROM servicos_esgoto_coleta_deposicao;";
 
@@ -69,7 +69,7 @@
 
     }
 
-    function editarColeta_Deposicao_Esgoto($fkid_municipios, $rede_esgoto, $total_atendido_rede_esgoto, $domicilios_urbanos_atendidos_rede_esgoto, $domicilios_rurais_atendidos_rede_esgoto, $entidade_responsavel_rede_esgoto, $fossa_septica, $total_atendido_fossa_septica, $domicilios_urbanos_atendidos_fossa_septica,
+    function editarColetaDeposicaoEsgoto($fkid_municipios, $rede_esgoto, $total_atendido_rede_esgoto, $domicilios_urbanos_atendidos_rede_esgoto, $domicilios_rurais_atendidos_rede_esgoto, $entidade_responsavel_rede_esgoto, $fossa_septica, $total_atendido_fossa_septica, $domicilios_urbanos_atendidos_fossa_septica,
     $domicilios_rurais_atendidos_fossa_septica,$entidade_responsavel_fossa_septica, $fossa_rudimentar, $total_atendido_fossa_rudimentar, $domicilios_urbanos_atendidos_fossa_rudimentar, $domicilios_rurais_atendidos_fossa_rudimentar,
     $entidade_responsavel_fossa_rudimentar, $vala, $total_atendido_vala, $domicilios_urbanos_atendidos_vala, $domicilios_rurais_atendidos_vala, $entidade_responsavel_vala, $estacao_tratamento, $total_atendido_estacao_tratamento,
     $domicilios_urbanos_atendidos_estacao_tratamento, $domicilios_rurais_atendidos_estacao_tratamento, $entidade_responsavel_estacao_tratamento, $esgoto_tratado, $total_atendido_esgoto_tratado, $domicilios_urbanos_atendidos_esgoto_tratado,
@@ -133,7 +133,7 @@
 
     }
 
-    function excluirColeta_Deposicao($idColetaDeposicao){
+    function excluirColetaDeposicao($idColetaDeposicao){
 
         $con = abrirConexao();
         $sql = "DELETE FROM servicos_esgoto_coleta_deposicao WHERE idColetaDeposicao = ".$idColetaDeposicao.";";

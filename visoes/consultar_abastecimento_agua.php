@@ -19,7 +19,9 @@
 </head>
 <body>
 
-    <a href="../index.php">Voltar à página inicial</a>
+    <p><a href="../index.php">Voltar à página inicial</a></p>
+    <p><a href="./form_a1.php">Voltar ao Formulario</a></p>
+    
     <table border = "2">
         <tr>
             <td colspan = "24"> <h2>Abastecimentos de agua cadastrados</h2></td>
@@ -33,7 +35,7 @@
 
         <?php
 
-        include "../controles/controlar_abastecimento_agua.php";
+        include "../controles/controle.php";
 
         $result = listarAbastecimentoAgua();
         while($registro = mysqli_fetch_array($result)){
@@ -47,8 +49,8 @@
             echo "<td>" .$tipo_abastecimento ."</td>" ; 
             echo "<td>" .$domicilios_atendidos. "%" ."</td>";
             echo "<td>" .$empresa_responsavel. "</td>";
-            echo "<td> <a href = 'editar_abastecimento_agua.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
-            //echo "<td> <a href = 'excluir_caracteristicas.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
+            echo "<td> <a href = 'form_a1.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
+            echo "<td> <a href = 'form_a1.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
         }
 
         ?>

@@ -1,7 +1,7 @@
 <?php
     include "../controles/a_conexao.php";
 
-    function verificarEntradas($fkid_municipios, $energia_eletrica, $capacidade_kva, $gerador_emergencia, $abastecimento_energia_urbana,
+    function verificarEntradasServicosEnergia($fkid_municipios, $energia_eletrica, $capacidade_kva, $gerador_emergencia, $abastecimento_energia_urbana,
     $abastecimento_energia_rural, $abastecimento_proprio_energia){
         if($fkid_municipios == ""){
             return "informe o fkid do municipio";
@@ -34,7 +34,7 @@
     $domicilios_urbanos_atendidos_energia_propria, $domicilios_rurais_atendidos_energia_propria ,$entidade_responsavel_energia_propria ,$outros_tipos_abastecimento,
     $total_abastecido_outros_tipos, $domicilios_urbanos_atendidos_outros_tipos, $entidade_responsavel_outros_tipos){
 
-        $msg = verificarEntradas($fkid_municipios, $energia_eletrica, $capacidade_kva, $gerador_emergencia, $abastecimento_energia_urbana,
+        $msg = verificarEntradasServicosEnergia($fkid_municipios, $energia_eletrica, $capacidade_kva, $gerador_emergencia, $abastecimento_energia_urbana,
         $abastecimento_energia_rural, $abastecimento_proprio_energia);
 
         if($msg == "") {
@@ -87,7 +87,7 @@
     $domicilios_urbanos_atendidos_energia_propria, $domicilios_rurais_atendidos_energia_propria ,$entidade_responsavel_energia_propria ,$outros_tipos_abastecimento,
     $total_abastecido_outros_tipos, $domicilios_urbanos_atendidos_outros_tipos, $entidade_responsavel_outros_tipos){
 
-        $msg = verificarEntradas($fkid_municipios, $energia_eletrica, $capacidade_kva, $gerador_emergencia, $abastecimento_energia_urbana,
+        $msg = verificarEntradasServicosEnergia($fkid_municipios, $energia_eletrica, $capacidade_kva, $gerador_emergencia, $abastecimento_energia_urbana,
         $abastecimento_energia_rural, $abastecimento_proprio_energia);
 
         if($msg == ""){

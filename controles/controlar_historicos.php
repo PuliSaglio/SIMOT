@@ -2,7 +2,7 @@
 
     include "../controles/a_conexao.php";
 
-    function verificarEntradas ($fkid_municipios, $origem_nome, $data_fundacao, $data_emancipacao, $fundadores) {
+    function verificarEntradasHistorico($fkid_municipios, $origem_nome, $data_fundacao, $data_emancipacao, $fundadores) {
 
         if($fkid_municipios == "") {
             return "Informe o identificador.";
@@ -30,7 +30,7 @@
 
     function cadastrarHistorico($fkid_municipios, $origem_nome, $data_fundacao, $data_emancipacao, $fundadores, $outros_fatos) {
 
-        $msg = verificarEntradas($fkid_municipios, $origem_nome, $data_fundacao, $data_emancipacao, $fundadores);
+        $msg = verificarEntradasHistorico($fkid_municipios, $origem_nome, $data_fundacao, $data_emancipacao, $fundadores);
         
         if($msg == "") {
             $con = abrirConexao();
@@ -72,7 +72,7 @@
 
     function editarHistorico($fkid_municipios, $origem_nome, $data_fundacao, $data_emancipacao, $fundadores, $outros_fatos){
 
-        $msg = verificarEntradas($fkid_municipios, $origem_nome, $data_fundacao, $data_emancipacao, $fundadores);
+        $msg = verificarEntradasHistorico($fkid_municipios, $origem_nome, $data_fundacao, $data_emancipacao, $fundadores);
 
         if($msg == ""){
             $con = abrirConexao();

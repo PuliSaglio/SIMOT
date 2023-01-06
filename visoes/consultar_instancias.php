@@ -8,7 +8,7 @@
 </head>
 <body>
     <p><a href="../index.php">Voltar</a></p>
-    <p><a href="view_instancias.php">Voltar às Instancias</a></p>
+    <p><a href="form_a1.php">Voltar ao formulario</a></p>
     <table border = "2">
         <tr>
             <td><h2>Instâncias de Governança</h2></td>
@@ -39,15 +39,14 @@
                 $fkid_municipios = $registro["fkid_municipios"];
 
                 echo "</tr>";               
-                    echo "<td>".$fkid_municipios."</td>";
-                    echo "<td>".$municipal."</td>";
-                    echo "<td>".$estadual."</td>";
-                    echo "<td>".$regional."</td>";
-                    echo "<td>".$nacional."</td>";
-                    echo "<td>".$internacional."</td>";
-                    echo "<td> <a href='view_instancias.php?fkid_municipios = ".$registro["fkid_municipios"]."'>Editar</a> </td>";
-                    echo "<td> <a href='view_instancias.php?fkid_municipios = ".$registro["fkid_municipios"]."'>Excluir</a> </td>";
-
+                echo "<td>".$fkid_municipios."</td>";
+                echo "<td>".$municipal."</td>";
+                echo "<td>".$estadual."</td>";
+                echo "<td>".$regional."</td>";
+                echo "<td>".$nacional."</td>";
+                echo "<td>".$internacional."</td>";
+                echo "<td> <a href = 'form_a1.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
+                echo "<td> <a href = 'form_a1.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
 
             }
         ?>
