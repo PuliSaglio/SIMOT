@@ -2,7 +2,7 @@
 
     include "../controles/a_conexao.php";
 
-    function verificarEntradas ($fkid_municipios, $tipo_abastecimento, $domicilios_atendidos, $empresa_responsavel) {
+    function verificarEntradasAbastecimentoAgua($fkid_municipios, $tipo_abastecimento, $domicilios_atendidos, $empresa_responsavel) {
 
         if($fkid_municipios == "") {
             return "Informe o identificador.";
@@ -22,7 +22,7 @@
 
     function cadastrarAbastecimentoAgua($fkid_municipios, $tipo_abastecimento, $domicilios_atendidos, $empresa_responsavel) {
 
-        $msg = verificarEntradas($fkid_municipios, $tipo_abastecimento, $domicilios_atendidos, $empresa_responsavel);
+        $msg = verificarEntradasAbastecimentoAgua($fkid_municipios, $tipo_abastecimento, $domicilios_atendidos, $empresa_responsavel);
         
         if($msg == "") {
             $con = abrirConexao();
@@ -63,7 +63,7 @@
 
     function editarAbastecimentoAgua($fkid_municipios, $tipo_abastecimento, $domicilios_atendidos, $empresa_responsavel){
 
-        $msg = verificarEntradas($fkid_municipios, $tipo_abastecimento, $domicilios_atendidos, $empresa_responsavel);
+        $msg = verificarEntradasAbastecimentoAgua($fkid_municipios, $tipo_abastecimento, $domicilios_atendidos, $empresa_responsavel);
 
         if($msg == ""){
             $con = abrirConexao();
@@ -87,10 +87,10 @@
 
     }
 
-    /*function excluirHistorico($fkid_municipios){
+    function excluirHistorico($fkid_municipios){
 
         $con = abrirConexao();
-        $sql = "DELETE FROM bdsimot.Historico_Municipio WHERE fkid_municipios = " .$fkid_municipios.";";
+        $sql = "DELETE FROM historico_Municipio WHERE fkid_municipios = " .$fkid_municipios.";";
 
         if(mysqli_query($con, $sql)){
             $msg = "Excluída.";
@@ -101,6 +101,6 @@
         mysqli_close($con);
         return $msg;
     }
-    */
+    
 
 ?>

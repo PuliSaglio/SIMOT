@@ -9,7 +9,7 @@
 <body>
 
     <p><a href="../index.php">Voltar</a></p>
-    <p><a href="view_historico.php">Voltar ao Historico</a></p>
+    <p><a href="form_a1.php">Voltar ao Formulário</a></p>
     <table border = "2">
         <tr>
             <td>Histórico do município</td>
@@ -46,8 +46,8 @@
                 echo "<td>" .$data_emancipacao. "</td>";
                 echo "<td>" .$fundadores. "</td>";
                 echo "<td>" .$outros_fatos. "</td>";
-                echo "<td> <a href = 'view_historico.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
-                echo "<td> <a href = 'view_historico.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
+                echo "<td> <a href = 'form_a1.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
+                echo "<td> <a href = 'form_a1.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
             }
         
         ?>

@@ -1,7 +1,7 @@
 <?php
     include "../controles/a_conexao.php";
 
-    function verificarEntradas($fkid_municipios, $coleta_seletiva, $coleta_nao_seletiva, $sem_coleta){
+    function verificarEntradasServicosLixo($fkid_municipios, $coleta_seletiva, $coleta_nao_seletiva, $sem_coleta){
         if($fkid_municipios == ""){
             return "informe o fkid do municipio";
         }
@@ -22,7 +22,7 @@
     $domicilios_urbanos_atendidos_coleta_nao_seletiva, $domicilios_rurais_atendidos_coleta_nao_seletiva, $entidade_responsavel_coleta_nao_seletiva, 
     $sem_coleta, $total_atendido_sem_coleta, $domicilios_urbanos_atendidos_sem_coleta, $domicilios_rurais_atendidos_sem_coleta){
 
-        $msg = verificarEntradas($fkid_municipios, $coleta_seletiva, $coleta_nao_seletiva, $sem_coleta);
+        $msg = verificarEntradasServicosLixo($fkid_municipios, $coleta_seletiva, $coleta_nao_seletiva, $sem_coleta);
 
         if($msg == "") {
             $con = abrirConexao();
@@ -72,7 +72,7 @@
     $domicilios_urbanos_atendidos_coleta_nao_seletiva, $domicilios_rurais_atendidos_coleta_nao_seletiva, $entidade_responsavel_coleta_nao_seletiva, 
     $sem_coleta, $total_atendido_sem_coleta, $domicilios_urbanos_atendidos_sem_coleta, $domicilios_rurais_atendidos_sem_coleta){
 
-        $msg = verificarEntradas($fkid_municipios, $coleta_seletiva, $coleta_nao_seletiva, $sem_coleta);
+        $msg = verificarEntradasServicosLixo($fkid_municipios, $coleta_seletiva, $coleta_nao_seletiva, $sem_coleta);
 
         if($msg == ""){
 

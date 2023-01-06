@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="../index.php">Voltar</a>
+    <p><a href="../index.php">Voltar</a></p>
+    <p><a href="./form_a1.php">Retornar ao Formulario</a></p>
     <table border = "2">
         <tr>
             <td><h2>Coleta e Deposicao Esgoto</h2></td>
@@ -53,9 +54,9 @@
 
         <?php
         
-            include "..\controles\controlar_coleta_deposicao_esgoto.php";
+            include "..\controles\controle.php";
 
-            $resultadoListagem = listarColeta_Deposicao_Esgoto();
+            $resultadoListagem = listarColetaDeposicaoEsgoto();
 
             while($registro = mysqli_fetch_array($resultadoListagem)){
                 $fkid_municipios = $registro["fkid_municipios"];
@@ -132,8 +133,8 @@
                     echo "<td>".$domicilios_urbanos_atendidos_outros."</td>";
                     echo "<td>".$domicilios_rurais_atendidos_outros."</td>";
                     echo "<td>".$entidade_responsavel_outros."</td>";
-                    echo "<td> <a href='editar_coleta_deposicao_esgoto.php?fkid_municipios = ".$registro["fkid_municipios"]."'>Editar</a> </td>";
-                    echo "<td> <a href='excluir_instancias.php?fkid_municipios = ".$registro["fkid_municipios"]."'>Excluir</a> </td>";
+                    echo "<td> <a href = 'form_a1.php?fkid_municipios=".$registro["fkid_municipios"]."'>Editar</a> </td>";
+                    echo "<td> <a href = 'form_a1.php?fkid_municipios=".$registro["fkid_municipios"]."'>Excluir</a> </td>";
 
 
             }

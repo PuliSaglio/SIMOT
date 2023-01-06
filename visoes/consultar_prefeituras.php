@@ -15,12 +15,15 @@
             border-collapse: collapse;
         }
     
+        hr {
+            margin: 40px 0;
+        }
     </style>
 </head>
 <body>
 
     <p><a href="../index.php">Voltar à página inicial</a></p>
-    <p><a href="view_prefeitura.php">Voltar à prefeitura</a></p>
+    <p><a href="form_a1.php">Voltar ao Formulario</a></p>
     <table border = "2">
         <tr>
             <td colspan = "24"> <h2>Prefeituras cadastradas</h2></td>
@@ -99,8 +102,8 @@
             echo "<td>" .$nome_prefeito. "</td>";
             echo "<td>" .$aniversario_municipal. "</td>";
             echo "<td>" .$santo_padroeiro. "</td>";
-            echo "<td> <a href = 'view_prefeitura.php?id_municipios=".$registro["id_municipios"]."'>Editar</a> </td>";
-            echo "<td> <a href = 'excluir_prefeitura.php?id_municipios=".$registro["id_municipios"]."'>Excluir</a> </td>";
+            echo "<td> <a href = 'form_a1.php?id_municipios=".$registro["id_municipios"]."'>Editar</a> </td>";
+            echo "<td> <a href = 'form_a1.php?id_municipios=".$registro["id_municipios"]."'>Excluir</a> </td>";
         }
         ?>
         </tr>    

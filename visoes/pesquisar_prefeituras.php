@@ -12,14 +12,15 @@
     <p><input type="text" name="prefeituras" id="prefeituras"> <input type="submit" value="Pesquisar"></p>
     
     <?php
-        include "../controles/controlar_prefeituras.php";
+        include "../controles/controle.php";
 
         $result = listarPrefeituras();
 
         while($registro = mysqli_fetch_array($result)){
             $nome_municipio = $registro["nome_municipio"]; 
 
-            echo "<p><a href = 'form_a1.php?id_municipios=".$registro["id_municipios"]."'>" . $nome_municipio. "</a></p>";
+            echo "<p><a href = 'form_a1.php?id_municipios=".$registro["id_municipios"]."&fkid_municipios=".$registro["id_municipios"]."'>" . $nome_municipio. "</a></p>";
+            
         }
     ?>
     <p><button><a href="form_a1.php">Cadastrar Nova Prefeitura</a></button></p>
