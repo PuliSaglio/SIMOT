@@ -148,6 +148,36 @@
     $domicilios_urbanos_atendidos_sem_coleta = ""; 
     $domicilios_rurais_atendidos_sem_coleta = "";
 
+    //Variaveis Serviços de Comunicaçao
+    $internet_radio= ""; 
+    $internet_cabo = ""; 
+    $internet_banda_larga=""; 
+    $internet_discada=""; 
+    $internet_wireless=""; 
+    $internet_3g=""; 
+    $telefonia_movel=""; 
+    $area_municipio_tmovel=""; 
+    $telefonia_fixa="";
+    $area_municipio_tfixa = "";
+
+    //Variaveis Serviços Turisticos
+    $divulgacao_impressa=""; 
+    $folder=""; 
+    $revista=""; 
+    $jornal=""; 
+    $outros=""; 
+    $divulgacao_televisiva=""; 
+    $atendimento_lingua_estrangeira=""; 
+    $informativos_impressos=""; 
+    $visitantes_ano=""; 
+    $visitantes_alta=""; 
+    $meses_alta=""; 
+    $origem_turistas=""; 
+    $origem_turistas_nacionais=""; 
+    $origem_turistas_internacionais=""; 
+    $ano_base="";
+    $atrativos_mais_visitados = "";
+
     //INFORMAÇOES BASICAS PREFEITURA!!
     //Para os dados aparecerem automaticamente qnd clickar em editar
     if(isset($_GET["id_municipios"])){
@@ -1272,7 +1302,7 @@
     }
     //SERVIÇOS DE LIXO!!!
 
-    if(isset($_POST["btnCadastrar"])){
+    if(isset($_POST["btnCadastrarServicosLixo"])){
         if(isset($_POST["fkid_municipios"])) {
             $fkid_municipios = $_POST["fkid_municipios"];
         }
@@ -1384,6 +1414,246 @@
 
         die();
     }
+    //SERVIÇOS DE COMUNICAÇAO
+    if(isset($_POST["btnCadastrarServicosComunicacao"])){
+        if(isset($_POST["fkid_municipios"])) {
+            $fkid_municipios = $_POST["fkid_municipios"];
+        }
+        if(isset($_POST["internet_radio"])) {
+            $internet_radio = $_POST["internet_radio"];
+        }
+        if(isset($_POST["internet_cabo"])) {
+            $internet_cabo = $_POST["internet_cabo"];
+        }
+        if(isset($_POST["internet_banda_larga"])){
+            $internet_banda_larga = $_POST["internet_banda_larga"];
+        }
+        if(isset($_POST["internet_discada"])){
+            $internet_discada = $_POST["internet_discada"];
+        }
+        if(isset($_POST["internet_wireless"])){
+            $internet_wireless = $_POST["internet_wireless"];
+        }
+        if(isset($_POST["internet_3g"])){
+            $internet_3g = $_POST["internet_3g"];
+        }
+        if(isset($_POST["telefonia_movel"])){
+            $telefonia_movel = $_POST["telefonia_movel"];
+        }
+        if(isset($_POST["area_municipio_tmovel"])){
+            $area_municipio_tmovel = $_POST["area_municipio_tmovel"];
+        }
+        if(isset($_POST["telefonia_fixa"])){
+            $telefonia_fixa = $_POST["telefonia_fixa"];
+        }
+        if(isset($_POST["area_municipio_tfixa"])){
+            $area_municipio_tfixa = $_POST["area_municipio_tfixa"];
+        }
+        $verificar = verificarEntradasServicosComunicacao($fkid_municipios,$telefonia_movel, $telefonia_fixa);
+
+        $msg = cadastrarServicosComunicacao($fkid_municipios, $internet_radio, $internet_cabo, $internet_banda_larga, $internet_discada, $internet_wireless, $internet_3g, $telefonia_movel, 
+        $area_municipio_tmovel, $telefonia_fixa, $area_municipio_tfixa);
+    }
+    elseif(isset($_POST["btnAtualizarServicosComunicacao"])) {
+        if(isset($_POST["fkid_municipios"])) {
+            $fkid_municipios = $_POST["fkid_municipios"];
+        }
+        if(isset($_POST["internet_radio"])) {
+            $internet_radio = $_POST["internet_radio"];
+        }
+        if(isset($_POST["internet_cabo"])) {
+            $internet_cabo = $_POST["internet_cabo"];
+        }
+        if(isset($_POST["internet_banda_larga"])){
+            $internet_banda_larga = $_POST["internet_banda_larga"];
+        }
+        if(isset($_POST["internet_discada"])){
+            $internet_discada = $_POST["internet_discada"];
+        }
+        if(isset($_POST["internet_wireless"])){
+            $internet_wireless = $_POST["internet_wireless"];
+        }
+        if(isset($_POST["coleta_nao_seletiva"])){
+            $coleta_nao_seletiva = $_POST["coleta_nao_seletiva"];
+        }
+        if(isset($_POST["internet_3g"])){
+            $internet_3g = $_POST["internet_3g"];
+        }
+        if(isset($_POST["telefonia_movel"])){
+            $telefonia_movel = $_POST["telefonia_movel"];
+        }
+        if(isset($_POST["area_municipio_tmovel"])){
+            $area_municipio_tmovel = $_POST["area_municipio_tmovel"];
+        }
+        if(isset($_POST["telefonia_fixa"])){
+            $telefonia_fixa = $_POST["telefonia_fixa"];
+        }
+        if(isset($_POST["area_municipio_tfixa"])){
+            $area_municipio_tfixa = $_POST["area_municipio_tfixa"];
+        }
+
+        $msg = editarServicosComunicacao($fkid_municipios, $internet_radio, $internet_cabo, $internet_banda_larga, $internet_discada, $internet_wireless, $internet_3g, $telefonia_movel, 
+    $area_municipio_tmovel, $telefonia_fixa, $area_municipio_tfixa);
+    }
+    elseif(isset($_POST["btnExcluirServicosComunicacao"])){
+        if(isset($_POST["fkid_municipios"])){
+            $fkid_municipios = $_POST["fkid_municipios"];
+        }
+
+        $result = excluirServicosComunicacao($fkid_municipios);
+
+        die();
+    }
+    //SERVIÇOS TURISTICOS
+    if(isset($_GET["fkid_municipios"])){
+        $fkid_municipios = $_GET["fkid_municipios"];
+
+        $result = pegarServicosTuristicos($fkid_municipios);
+        $numRegistros = mysqli_num_rows($result);
+
+        if($numRegistros > 0){
+            while($row = mysqli_fetch_assoc($result)){
+            $fkid_municipios = $row['fkid_municipios'];
+            $divulgacao_impressa = $row['divulgacao_impressa']; 
+            $folder = $row['folder'];
+            $revista = $row['revista'];
+            $jornal = $row['jornal'];
+            $outros = $row['outros'];
+            $divulgacao_televisiva = $row['divulgacao_televisiva'];
+            $atendimento_lingua_estrangeira = $row['atendimento_lingua_estrangeira'];
+            $informativos_impressos = $row['informativos_impressos'];
+            $visitantes_ano = $row['visitantes_ano'];
+            $visitantes_alta = $row['visitantes_alta'];
+            $meses_alta = $row['meses_alta'];
+            $origem_turistas = $row['origem_turistas'];
+            $origem_turistas_nacionais = $row['origem_turistas_nacionais'];
+            $origem_turistas_internacionais = $row['origem_turistas_internacionais'];
+            $ano_base = $row['ano_base'];
+            $atrativos_mais_visitados = $row['atrativos_mais_visitados'];
+            }
+        }
+    }
+    if(isset($_POST["btnCadastrarServicosTuristicos"])){
+        if(isset($_POST["fkid_municipios"])) {
+            $fkid_municipios = $_POST["fkid_municipios"];
+        }
+        if(isset($_POST["divulgacao_impressa"])) {
+            $divulgacao_impressa = $_POST["divulgacao_impressa"];
+        }
+        if(isset($_POST["folder"])) {
+            $folder = $_POST["folder"];
+        }
+        if(isset($_POST["revista"])){
+            $revista = $_POST["revista"];
+        }
+        if(isset($_POST["jornal"])){
+            $jornal = $_POST["jornal"];
+        }
+        if(isset($_POST["outros"])){
+            $outros = $_POST["outros"];
+        }
+        if(isset($_POST["divulgacao_televisiva"])){
+            $divulgacao_televisiva = $_POST["divulgacao_televisiva"];
+        }
+        if(isset($_POST["atendimento_lingua_estrangeira"])){
+            $atendimento_lingua_estrangeira = $_POST["atendimento_lingua_estrangeira"];
+        }
+        if(isset($_POST["informativos_impressos"])){
+            $informativos_impressos = $_POST["informativos_impressos"];
+        }
+        if(isset($_POST["visitantes_ano"])){
+            $visitantes_ano = $_POST["visitantes_ano"];
+        }
+        if(isset($_POST["visitantes_alta"])){
+            $visitantes_alta = $_POST["visitantes_alta"];
+        }
+        if(isset($_POST["meses_alta"])){
+            $meses_alta = $_POST["meses_alta"];
+        }
+        if(isset($_POST["origem_turistas"])){
+            $origem_turistas = $_POST["origem_turistas"];
+        }
+        if(isset($_POST["origem_turistas_nacionais"])){
+            $origem_turistas_nacionais = $_POST["origem_turistas_nacionais"];
+        }
+        if(isset($_POST["origem_turistas_internacionais"])){
+            $origem_turistas_internacionais = $_POST["origem_turistas_internacionais"];
+        }
+        if(isset($_POST["ano_base"])){
+            $ano_base = $_POST["ano_base"];
+        }
+        if(isset($_POST["atrativos_mais_visitados"])){
+            $atrativos_mais_visitados = $_POST["atrativos_mais_visitados"];
+        }
+        
+        $verificar = verificarEntradasServicosTuristicos($fkid_municipios, $divulgacao_impressa, $divulgacao_televisiva, $atendimento_lingua_estrangeira, $informativos_impressos, $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas);
+
+        $msg = cadastrarServicosTuristicos($fkid_municipios, $divulgacao_impressa, $folder, $revista, $jornal, $outros, $divulgacao_televisiva, $atendimento_lingua_estrangeira, $informativos_impressos, $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas, $origem_turistas_nacionais, $origem_turistas_internacionais, $ano_base, $atrativos_mais_visitados);
+    }
+    elseif(isset($_POST["btnAtualizarServicosTuristicos"])) {
+        if(isset($_POST["fkid_municipios"])) {
+            $fkid_municipios = $_POST["fkid_municipios"];
+        }
+        if(isset($_POST["divulgacao_impressa"])) {
+            $divulgacao_impressa = $_POST["divulgacao_impressa"];
+        }
+        if(isset($_POST["folder"])) {
+            $folder = $_POST["folder"];
+        }
+        if(isset($_POST["revista"])){
+            $revista = $_POST["revista"];
+        }
+        if(isset($_POST["jornal"])){
+            $jornal = $_POST["jornal"];
+        }
+        if(isset($_POST["outros"])){
+            $outros = $_POST["outros"];
+        }
+        if(isset($_POST["divulgacao_televisiva"])){
+            $divulgacao_televisiva = $_POST["divulgacao_televisiva"];
+        }
+        if(isset($_POST["atendimento_lingua_estrangeira"])){
+            $atendimento_lingua_estrangeira = $_POST["atendimento_lingua_estrangeira"];
+        }
+        if(isset($_POST["informativos_impressos"])){
+            $informativos_impressos = $_POST["informativos_impressos"];
+        }
+        if(isset($_POST["visitantes_ano"])){
+            $visitantes_ano = $_POST["visitantes_ano"];
+        }
+        if(isset($_POST["visitantes_alta"])){
+            $visitantes_alta = $_POST["visitantes_alta"];
+        }
+        if(isset($_POST["meses_alta"])){
+            $meses_alta = $_POST["meses_alta"];
+        }
+        if(isset($_POST["origem_turistas"])){
+            $origem_turistas = $_POST["origem_turistas"];
+        }
+        if(isset($_POST["origem_turistas_nacionais"])){
+            $origem_turistas_nacionais = $_POST["origem_turistas_nacionais"];
+        }
+        if(isset($_POST["origem_turistas_internacionais"])){
+            $origem_turistas_internacionais = $_POST["origem_turistas_internacionais"];
+        }
+        if(isset($_POST["ano_base"])){
+            $ano_base = $_POST["ano_base"];
+        }
+        if(isset($_POST["atrativos_mais_visitados"])){
+            $atrativos_mais_visitados = $_POST["atrativos_mais_visitados"];
+        }
+        $msg = EditarServicosTuristicos($fkid_municipios, $divulgacao_impressa, $folder, $revista, $jornal, $outros, $divulgacao_televisiva, $atendimento_lingua_estrangeira, $informativos_impressos,
+        $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas, $origem_turistas_nacionais, $origem_turistas_internacionais, $ano_base, $atrativos_mais_visitados);
+    }
+    elseif(isset($_POST["btnExcluirServicosTuristicos"])){
+        if(isset($_POST["fkid_municipios"])){
+            $fkid_municipios = $_POST["fkid_municipios"];
+        }
+
+        $result = excluirServicosTuristicos($fkid_municipios);
+
+        die();
+    }
 
 ?>
 <!DOCTYPE html>
@@ -1394,7 +1664,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario A1</title>
     <style>
-        .prefeituras, .orgao_oficial_tur, .instancias, .historico, .caracteristicas, .abastecimentoAgua, .coletaDeposicaoEsgoto, .servicosEnergia{
+        .prefeituras, .orgao_oficial_tur, .instancias, .historico, .caracteristicas, .abastecimentoAgua, .coletaDeposicaoEsgoto, .servicosEnergia, .servicosLixo, .servicosComunicacao, .servicosTuristicos{
             display:flex;
             justify-content:center;
         }
@@ -2016,6 +2286,7 @@
             <table>
                 <tr>
                     <td><h2>Serviços de Energia</h2></td>
+                    <td><button><a href="./consultar_servicos_energia.php">LISTAR</a></button></td>
                 </tr>
                 <tr>
                     <td><input type="hidden" name = "fkid_municipios" id = "fkid_municipios" value = <?php echo $fkid_municipios;?>></td>
@@ -2146,111 +2417,390 @@
                 </tr>
             </table>
         </div>
+        <hr>
         <div class="servicosLixo">
-        <form action="cadastrar_servicos_lixo.php" name="cadastrar_servicos_lixo.php" id="cadastrar_servicos_lixo.php" method = "POST"> 
-    
-    <table>
-        <tr>
-            <td colspan = "2"><a href="../index.php"> Voltar à página inicial </a></td>
-        </tr>
-        <tr>
-            <td colspan = "2"> <h2>Cadastrar Serviços de Lixo</h2></td>
-        </tr>
-        <tr>
-            <td colspan = "2"> <?php echo "$verificar"; ?></td>
-        </tr>
-        <tr>
-            <td>FKid Municipio</td>
-            <td><input type="number" name = "fkid_municipios" id = "fkid_municipios"></td>
-        </tr>
-        <tr>
-            <td style="font-weight:bold">Coleta Seletiva</td>
-        </tr>
-        <tr>
-            <td>Sim</td>
-            <td><input type="radio" name="coleta_seletiva" id="coleta_seletiva" placeholder = "" value="SIM"></td>
-        </tr>
-        <tr>
-            <td>Não</td>
-            <td><input type="radio" name="coleta_seletiva" id="coleta_seletiva" placeholder = "" value="NAO"></td>
-        </tr>
-    
-        <tr>
-            <td>Total Atendido(%)</td>
-            <td><input type="number" name = "total_atendido_coleta_seletiva" id = "total_atendido_coleta_seletiva" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td>Domicilios Urbanos Atendidos(%)</td>
-            <td><input type="number" name = "domicilios_urbanos_atendidos_coleta_seletiva" id = "domicilios_urbanos_atendidos_coleta_seletiva" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td>Domicilios Rurais Atendidos(%)</td>
-            <td><input type="number" name = "domicilios_rurais_atendidos_coleta_seletiva" id = "domicilios_rurais_atendidos_coleta_seletiva" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td>Entidade Responsavel</td>
-            <td><input type="text" name = "entidade_responsavel_coleta_seletiva" id = "entidade_responsavel_coleta_seletiva" placeholder = ""></td>
-        </tr>
-    
-        <tr>
-            <td style="font-weight:bold">Coleta Nao Seletiva</td>
-        </tr>
-        <tr>
-            <td>SIM</td>
-            <td><input type="radio" name = "coleta_nao_seletiva" id = "coleta_nao_seletiva" placeholder = "" value = "sim"></td>
-        </tr>
-        <tr>
-            <td>NÃO</td>
-            <td><input type="radio" name = "coleta_nao_seletiva" id = "coleta_nao_seletiva" placeholder = "" value = "nao"></td>
-        </tr>
-        <tr>
-            <td>Total Atendido(%)</td>
-            <td><input type="number" name = "total_atendido_coleta_nao_seletival" id = "total_atendido_coleta_nao_seletival" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td>Domicilios Urbanos Atendidos(%)</td>
-            <td><input type="number" name = "domicilios_urbanos_atendidos_coleta_nao_seletiva" id = "domicilios_urbanos_atendidos_coleta_nao_seletiva" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td>Domicilios Rurais Atendidos(%)</td>
-            <td><input type="number" name = "domicilios_rurais_atendidos_coleta_nao_seletiva" id = "domicilios_rurais_atendidos_coleta_nao_seletiva" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td>Entidade Responsavel</td>
-            <td><input type="text" name = "entidade_responsavel_coleta_nao_seletiva" id = "entidade_responsavel_coleta_nao_seletiva" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td style="font-weight:bold">Sem Coleta</td>
-        </tr>
-        <tr>
-            <td>SIM</td>
-            <td><input type="radio" name = "sem_coleta" id = "sem_coleta" placeholder = "" value = "sim"></td>
-        </tr>
-        <tr>
-            <td>NÃO</td>
-            <td><input type="radio" name = "sem_coleta" id = "sem_coleta" placeholder = "" value = "nao"></td>
-        </tr>
-        <tr>
-            <td>Total Atendido(%)</td>
-            <td><input type="number" name = "total_atendido_sem_coleta" id = "total_atendido_sem_coleta" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td>Domicilios Urbanos Atendidos(%)</td>
-            <td><input type="number" name = "domicilios_urbanos_atendidos_sem_coleta" id = "domicilios_urbanos_atendidos_sem_coleta" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td>Domicilios Rurais Atendidos(%)</td>
-            <td><input type="number" name = "domicilios_rurais_atendidos_sem_coleta" id = "domicilios_rurais_atendidos_sem_coleta" placeholder = ""></td>
-        </tr>
-        <tr>
-            <td><input type="submit" name = "btnCadastrar" value = "Cadastrar"></td>
-        </tr>
-        
-    </table>
-
-
-
-</form>
+            <form action="form_a1.php" name="form_a1.php" id="form_a1.php" method = "POST"> 
+                
+                <table>
+                    <tr>
+                        <td><h2>Serviços de Lixo</h2></td>
+                        <td><button><a href="./consultar_servicos_lixo.php">LISTAR</a></button></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo "$verificar"; ?></td>
+                    </tr>
+                    <tr>
+                        <td><input type="hidden" name = "fkid_municipios" id = "fkid_municipios" value = <?php echo $fkid_municipios;?>></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Coleta Seletiva</td>
+                    </tr>
+                    <tr>
+                        <td>Sim</td>
+                        <td><input type="radio" name="coleta_seletiva" id="coleta_seletiva" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>Não</td>
+                        <td><input type="radio" name="coleta_seletiva" id="coleta_seletiva" placeholder = "" value="NAO"></td>
+                    </tr>
+                
+                    <tr>
+                        <td>Total Atendido(%)</td>
+                        <td><input type="number" name = "total_atendido_coleta_seletiva" id = "total_atendido_coleta_seletiva" placeholder = "" value=<?php echo $total_atendido_coleta_seletiva;?>></td>
+                    </tr>
+                    <tr>
+                        <td>Domicilios Urbanos Atendidos(%)</td>
+                        <td><input type="number" name = "domicilios_urbanos_atendidos_coleta_seletiva" id = "domicilios_urbanos_atendidos_coleta_seletiva" placeholder = "" value=<?php echo $domicilios_urbanos_atendidos_coleta_seletiva;?>></td>
+                    </tr>
+                    <tr>
+                        <td>Domicilios Rurais Atendidos(%)</td>
+                        <td><input type="number" name = "domicilios_rurais_atendidos_coleta_seletiva" id = "domicilios_rurais_atendidos_coleta_seletiva" placeholder = "" value=<?php echo $domicilios_rurais_atendidos_coleta_seletiva;?>></td>
+                    </tr>
+                    <tr>
+                        <td>Entidade Responsavel</td>
+                        <td><input type="text" name = "entidade_responsavel_coleta_seletiva" id = "entidade_responsavel_coleta_seletiva" placeholder = "" value=<?php echo $entidade_responsavel_coleta_seletiva;?>></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="font-weight:bold">Coleta Nao Seletiva</td>
+                    </tr>
+                    <tr>
+                        <td>SIM</td>
+                        <td><input type="radio" name = "coleta_nao_seletiva" id = "coleta_nao_seletiva" placeholder = "" value = "sim"></td>
+                    </tr>
+                    <tr>
+                        <td>NÃO</td>
+                        <td><input type="radio" name = "coleta_nao_seletiva" id = "coleta_nao_seletiva" placeholder = "" value = "nao"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Atendido(%)</td>
+                        <td><input type="number" name = "total_atendido_coleta_nao_seletival" id = "total_atendido_coleta_nao_seletival" placeholder = "" value=<?php echo $total_atendido_coleta_nao_seletival;?>></td>
+                    </tr>
+                    <tr>
+                        <td>Domicilios Urbanos Atendidos(%)</td>
+                        <td><input type="number" name = "domicilios_urbanos_atendidos_coleta_nao_seletiva" id = "domicilios_urbanos_atendidos_coleta_nao_seletiva" placeholder = "" value=<?php echo $domicilios_urbanos_atendidos_coleta_nao_seletiva;?>></td>
+                    </tr>
+                    <tr>
+                        <td>Domicilios Rurais Atendidos(%)</td>
+                        <td><input type="number" name = "domicilios_rurais_atendidos_coleta_nao_seletiva" id = "domicilios_rurais_atendidos_coleta_nao_seletiva" placeholder = "" value=<?php echo $domicilios_rurais_atendidos_coleta_nao_seletiva;?>></td>
+                    </tr>
+                    <tr>
+                        <td>Entidade Responsavel</td>
+                        <td><input type="text" name = "entidade_responsavel_coleta_nao_seletiva" id = "entidade_responsavel_coleta_nao_seletiva" placeholder = "" value=<?php echo $entidade_responsavel_coleta_nao_seletiva;?>></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Sem Coleta</td>
+                    </tr>
+                    <tr>
+                        <td>SIM</td>
+                        <td><input type="radio" name = "sem_coleta" id = "sem_coleta" placeholder = "" value = "sim"></td>
+                    </tr>
+                    <tr>
+                        <td>NÃO</td>
+                        <td><input type="radio" name = "sem_coleta" id = "sem_coleta" placeholder = "" value = "nao"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Atendido(%)</td>
+                        <td><input type="number" name = "total_atendido_sem_coleta" id = "total_atendido_sem_coleta" placeholder = "" value=<?php echo $total_atendido_sem_coleta;?>></td>
+                    </tr>
+                    <tr>
+                        <td>Domicilios Urbanos Atendidos(%)</td>
+                        <td><input type="number" name = "domicilios_urbanos_atendidos_sem_coleta" id = "domicilios_urbanos_atendidos_sem_coleta" placeholder = "" value=<?php echo $domicilios_urbanos_atendidos_sem_coleta;?>></td>
+                    </tr>
+                    <tr>
+                        <td>Domicilios Rurais Atendidos(%)</td>
+                        <td><input type="number" name = "domicilios_rurais_atendidos_sem_coleta" id = "domicilios_rurais_atendidos_sem_coleta" placeholder = "" value=<?php echo $domicilios_rurais_atendidos_sem_coleta;?>></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name = "btnCadastrarServicosLixo" value = "Cadastrar"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name = "btnEditarServicosLixo" value = "Editar"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name = "btnExcluirServicosLixo" value = "Excluir"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <hr>
+        <div class="servicosComunicacao">
+            <form action="form_a1.php" name="form_a1.php" id="form_a1.php" method = "POST"> 
+                
+                <table>
+                    <tr>
+                        <td><h2>Serviços de Comunicaçao</h2></td>
+                        <td><button><a href="./consultar_servicos_comunicacao.php">LISTAR</a></button></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo "$verificar"; ?></td>
+                    </tr>
+                    <tr>
+                        <td><input type="hidden" name = "fkid_municipios" id = "fkid_municipios" value = <?php echo $fkid_municipios;?>></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Acesso à Internet</td>
+                    </tr>
+                    <tr>
+                        <td>A rádio</td>
+                        <td><input type="checkbox" name="internet_radio" id="internet_radio" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>A cabo</td>
+                        <td><input type="checkbox" name="internet_cabo" id="internet_cabo" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>Banda Larga</td>
+                        <td><input type="checkbox" name="internet_banda_larga" id="internet_banda_larga" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>Discada</td>
+                        <td><input type="checkbox" name="internet_discada" id="internet_discada" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>Wireless</td>
+                        <td><input type="checkbox" name="internet_wireless" id="internet_wireless" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>3G</td>
+                        <td><input type="checkbox" name="internet_3g" id="internet_3g" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Telefonia Móvel</td>
+                    </tr>
+                    <tr>
+                        <td>SIM</td>
+                        <td><input type="radio" name="telefonia_movel" id="telefonia_movel" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>NAO</td>
+                        <td><input type="radio" name="telefonia_movel" id="telefonia_movel" placeholder = "" value="NAO"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Area de Cobertura Telefonia Móvel</td>
+                    </tr>
+                    <tr>
+                        <td>Todo o municipio</td>
+                        <td><input type="radio" name="area_municipio_tmovel" id="area_municipio_tmovel" placeholder = "" value="Em todo o municipio"></td>
+                    </tr>
+                    <tr>
+                        <td>Parte do municipio</td>
+                        <td><input type="radio" name="area_municipio_tmovel" id="area_municipio_tmovel" placeholder = "" value="Em parte do municipio"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Telefonia Fixa</td>
+                    </tr>
+                    <tr>
+                        <td>SIM</td>
+                        <td><input type="radio" name="telefonia_fixa" id="telefonia_fixa" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>NAO</td>
+                        <td><input type="radio" name="telefonia_fixa" id="telefonia_fixa" placeholder = "" value="NAO"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Area de Cobertura Telefonia Fixa</td>
+                    </tr>
+                    <tr>
+                        <td>Todo o municipio</td>
+                        <td><input type="radio" name="area_municipio_tfixa" id="area_municipio_tfixa" placeholder = "" value="Em todo o municipio"></td>
+                    </tr>
+                    <tr>
+                        <td>Parte do municipio</td>
+                        <td><input type="radio" name="area_municipio_tfixa" id="area_municipio_tfixa" placeholder = "" value="Em parte do municipio"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name = "btnCadastrarServicosComunicacao" value = "Cadastrar"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name = "btnEditarServicosComunicacao" value = "Editar"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name = "btnExcluirServicosComunicacao" value = "Excluir"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <hr>
+        <div class="servicosTuristicos">
+        <form action="form_a1.php" name="form_a1.php" id="form_a1.php" method = "POST"> 
+                
+                <table>
+                    <tr>
+                        <td><h2>Serviços Turisticos</h2></td>
+                        <td><button><a href="consultar_servicos_turisticos.php">LISTAR</a></button></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo "$verificar"; ?></td>
+                    </tr>
+                    <tr>
+                        <td><input type="hidden" name = "fkid_municipios" id = "fkid_municipios" value = <?php echo $fkid_municipios;?>></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Divulgaçao Impressa</td>
+                    </tr>
+                    <tr>
+                        <td>SIM</td>
+                        <td><input type="radio" name="divulgacao_impressa" id="divulgacao_impressa" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>NAO</td>
+                        <td><input type="radio" name="divulgacao_impressa" id="divulgacao_impressa" placeholder = "" value="NAO"></td>
+                    </tr>
+                    <tr>
+                        <td>Folder</td>
+                        <td><input type="text" name="folder" id="folder" placeholder = "" ></td>
+                    </tr>
+                    <tr>
+                        <td>Revista</td>
+                        <td><input type="text" name="revista" id="revista" placeholder = "" ></td>
+                    </tr>
+                    <tr>
+                        <td>Jornal</td>
+                        <td><input type="text" name="jornal" id="jornal" placeholder = "" ></td>
+                    </tr>
+                    <tr>
+                        <td>Outros</td>
+                        <td><input type="text" name="outros" id="outros" placeholder = ""></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Divulgaçao Televisiva</td>
+                    </tr>
+                    <tr>
+                        <td>SIM</td>
+                        <td><input type="radio" name="divulgacao_televisiva" id="divulgacao_televisiva" placeholder = "" value="SIM"></td>
+                    </tr>
+                    <tr>
+                        <td>NAO</td>
+                        <td><input type="radio" name="divulgacao_televisiva" id="divulgacao_televisiva" placeholder = "" value="NAO"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Atendimento em lingua estrangeira</td>
+                        <td><input type="list" name="atendimento_lingua_estrangeira" list="atendimento_lingua_estrangeira" placeholder = "Exemplo:Espanhol"></td>
+                        <datalist id="atendimento_lingua_estrangeira">
+                        <option value="Espanhol">
+                        <option value="Ingles">
+                        <option value="Frances">
+                        </datalist>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Informativos Impressos</td>
+                        <td><input type="list" name="informativos_impressos" list="informativos_impressos" placeholder = "Língua dos Informativos"></td>
+                        <datalist id="informativos_impressos">
+                        <option value="Portugues">
+                        <option value="Espanhol">
+                        <option value="Ingles">
+                        
+                        </datalist>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Dados de visitaçao</td>
+                    </tr>
+                    <tr>
+                        <td>Visitantes por ano:</td>
+                        <td><input type="number" name="visitantes_ano" id="visitantes_ano" placeholder = ""></td>
+                    </tr>
+                    <tr>
+                        <td>Visitantes Alta Temporada</td>
+                        <td><input type="number" name="visitantes_alta" id="visitantes_alta" placeholder = "" ></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Meses Alta Temporada</td>
+                    </tr>
+                    <tr>
+                        <td>Janeiro</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="janeiro "></td>
+                    </tr>
+                    <tr>
+                        <td>Fevereiro</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="fevereiro "></td>
+                    </tr>
+                    <tr>
+                        <td>Março</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="março"></td>
+                    </tr>
+                    <tr>
+                        <td>Abril</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="abril"></td>
+                    </tr>
+                    <tr>
+                        <td>Maio</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="maio"></td>
+                    </tr>
+                    <tr>
+                        <td>Junho</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="junho"></td>
+                    </tr>
+                    <tr>
+                        <td>Julho</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="julho"></td>
+                    </tr>
+                    <tr>
+                        <td>Agosto</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="agosto"></td>
+                    </tr>
+                    <tr>
+                        <td>Setembro</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="setembro"></td>
+                    </tr>
+                    <tr>
+                        <td>Outubro</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="outubro"></td>
+                    </tr>
+                    <tr>
+                        <td>Novembro</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="novembro"></td>
+                    </tr>
+                    <tr>
+                        <td>Dezembro</td>
+                        <td><input type="checkbox" name="meses_alta[]" id="meses_alta" placeholder = "" value="dezembro"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Origem dos Turistas</td>
+                    </tr>
+                    <tr>
+                        <td>Entorno Municipal</td>
+                        <td><input type="checkbox" name="origem_turistas[]" id="origem_turistas" placeholder = "" value="Entorno Municipal"></td>
+                    </tr>
+                    <tr>
+                        <td>Estadual</td>
+                        <td><input type="checkbox" name="origem_turistas[]" id="origem_turistas" placeholder = "" value="Estadal"></td>
+                    </tr>
+                    <tr>
+                        <td>Nacional</td>
+                        <td><input type="checkbox" name="origem_turistas[]" id="origem_turistas" placeholder = "" value="Nacional"></td>
+                    </tr>
+                    <tr>
+                        <td>Internacional</td>
+                        <td><input type="checkbox" name="origem_turistas[]" id="origem_turistas" placeholder = "" value="Internacional"></td>
+                    </tr>
+                    <tr>
+                        <td>Origem dos turistas nacionais</td>
+                        <td><input type="text" name="origem_turistas_nacionais" id="origem_turistas_nacionais" placeholder = "(até 5 estados)" style="width: 300px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Origem dos turistas internacionais</td>
+                        <td><input type="text" name="origem_turistas_internacionais" id="origem_turistas_internacionais" placeholder = "(até 5 paises)" style="width: 300px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Ano Base</td>
+                        <td><input type="number" name="ano_base" id="ano_base" ></td>
+                    </tr>
+                    <tr>
+                        <td>Atrativos mais Visitados</td>
+                        <td><input type="text" name="atrativos_mais_visitados" id="atrativos_mais_visitados"  style="width:300px;"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name = "btnCadastrarServicosTuristicos" value = "Cadastrar"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name = "btnEditarServicosTuristicos" value = "Editar"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name = "btnExcluirServicosTuristicos" value = "Excluir"></td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </div>  
 </body>

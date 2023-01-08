@@ -1162,4 +1162,243 @@
         mysqli_close($con);
         return $msg;
     }
+    //SERVIÇOS COMUNICAÇAO
+    function verificarEntradasServicosComunicacao($fkid_municipios,$telefonia_movel, $telefonia_fixa){
+        if($fkid_municipios == ""){
+            return "informe o fkid do municipio";
+        }  
+        if($telefonia_movel == ""){
+            return "Informe se há telefonia movel";
+        }
+        if($telefonia_fixa == ""){
+            return "Informe se há coleta seletiva";
+        }
+
+        return "";
+    }
+    
+    function cadastrarServicosComunicacao($fkid_municipios, $internet_radio, $internet_cabo, $internet_banda_larga, $internet_discada, $internet_wireless, $internet_3g, $telefonia_movel, 
+    $area_municipio_tmovel, $telefonia_fixa, $area_municipio_tfixa){
+
+        $msg = verificarEntradasServicosComunicacao($fkid_municipios,$telefonia_movel, $telefonia_fixa);
+
+        if($msg == "") {
+            $con = abrirConexao();
+                $sql = "INSERT INTO servicos_comunicacao (fkid_municipios, internet_radio, internet_cabo, internet_banda_larga, internet_discada, internet_wireless, internet_3g, telefonia_movel, 
+                area_municipio_tmovel, telefonia_fixa, area_municipio_tfixa)
+                VALUES ('$fkid_municipios', '$internet_radio', '$internet_cabo', '$internet_banda_larga', '$internet_discada', '$internet_wireless', '$internet_3g', '$telefonia_movel', 
+                '$area_municipio_tmovel', '$telefonia_fixa', '$area_municipio_tfixa')";
+
+                if(mysqli_query($con, $sql)){
+                    echo "Cadastro realizado com sucesso! <a href='consultar_servicos_comunicacao.php'>Consultar Servicos de Comunicacao.</a>";
+                } else {
+                    echo "Erro ao tentar cadastrar servicos de comunicacao ";
+                }
+
+
+            mysqli_close($con);
+        }
+        
+        return array($msg);
+    }
+
+    function pegarServicosComunicacao($fkid_municipios){
+
+        $con = abrirConexao();
+
+            $sql = "SELECT * FROM servicos_comunicacao WHERE fkid_municipios = " . $fkid_municipios . ";";
+            $result = mysqli_query($con, $sql);
+            mysqli_close($con);
+
+            return $result;
+        
+    }
+
+    function listarServicosComunicacao(){
+
+        $con = abrirConexao();
+        $sql = "SELECT * FROM servicos_comunicacao;";
+        $resultadoListagem = mysqli_query($con, $sql);
+        mysqli_close($con);
+
+        return $resultadoListagem;
+    }
+
+    function editarServicosComunicacao($fkid_municipios, $internet_radio, $internet_cabo, $internet_banda_larga, $internet_discada, $internet_wireless, $internet_3g, $telefonia_movel, 
+    $area_municipio_tmovel, $telefonia_fixa, $area_municipio_tfixa){
+
+        $msg = verificarEntradasServicosComunicacao($fkid_municipios,$telefonia_movel, $telefonia_fixa);
+
+        if($msg == ""){
+
+            $con = abrirConexao();
+
+            $sql = "UPDATE servicos_energia SET 
+            fkid_municipios = '$fkid_municipios',  
+            internet_radio = '$internet_radio',
+            internet_cabo = '$internet_cabo',
+            internet_banda_larga = '$internet_banda_larga',
+            internet_discada = '$internet_discada',
+            internet_wireless = '$internet_wireless',
+            internet_3g = '$internet_3g',
+            telefonia_movel = '$telefonia_movel',
+            area_municipio_tmovel = '$area_municipio_tmovel',
+            telefonia_fixa = '$telefonia_fixa',
+            area_municipio_tfixa = '$area_municipio_tfixa' WHERE fkid_municipios = '$fkid_municipios';";
+
+            if(mysqli_query($con, $sql)) {
+                echo "Alteração realizada com sucesso! Verificar atualização no <a href='consultar_servicos_comunicacao.php'>banco de dados</a>";
+            } else {
+                echo "Atualização não pode ser realizada.";
+            }
+
+            mysqli_close($con);
+            return array($msg);
+        }
+    }
+
+
+    function excluirServicosComunicacao($fkid_municipios){
+        $con = abrirConexao();
+
+        $sql = "DELETE FROM servicos_comunicacao WHERE fkid_municipios = '$fkid_municipios';";
+
+        if(mysqli_query($con, $sql)){
+            $msg = "Excluída.";
+        } else {
+            $msg = "Não excluída.";
+        }
+
+        mysqli_close($con);
+        return $msg;
+    }
+    //SERVIÇOS TURISTICOS
+    function verificarEntradasServicosTuristicos($fkid_municipios, $divulgacao_impressa, $divulgacao_televisiva, $informativos_impressos, $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas){
+        if($fkid_municipios == ""){
+            return "informe o fkid do municipio";
+        }
+        if($divulgacao_impressa == ""){
+            return "Informe se há divulgaçao impressa";
+        }
+        if($divulgacao_televisiva == ""){
+            return "Informe há divulgaçao televisiva";
+        }
+        if($informativos_impressos == ""){
+            return "Informe se há Informativos impressos";
+        }
+        if($visitantes_ano == ""){
+            return "Informe os Visitantes por ano";
+        }
+        if($visitantes_alta == ""){
+            return "Informe os Visitantes na alta";
+        }
+        if($meses_alta == ""){
+            return "Informe os Meses de alta";
+        }
+        if($origem_turistas == ""){
+            return "Informe a origem dos turistas";
+        }
+
+        return "";
+    }
+    
+    function cadastrarServicosTuristicos($fkid_municipios, $divulgacao_impressa, $folder, $revista, $jornal, $outros, $divulgacao_televisiva, $atendimento_lingua_estrangeira, $informativos_impressos, $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas, $origem_turistas_nacionais, $origem_turistas_internacionais, $ano_base, $atrativos_mais_visitados){
+
+        $msg = verificarEntradasServicosTuristicos($fkid_municipios, $divulgacao_impressa, $divulgacao_televisiva, $informativos_impressos, $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas);
+
+        if($msg == "") {
+            $con = abrirConexao();
+                $sql = "INSERT INTO servicos_turisticos (fkid_municipios, divulgacao_impressa, folder, revista, jornal, outros, divulgacao_televisiva, atendimento_lingua_estrangeira, informativos_impressos, visitantes_ano, visitantes_alta, meses_alta, origem_turistas, origem_turistas_nacionais, origem_turistas_internacionais, ano_base, atrativos_mais_visitados)
+                VALUES ('$fkid_municipios', '$divulgacao_impressa', '$folder', '$revista', '$jornal', '$outros', '$divulgacao_televisiva', '$atendimento_lingua_estrangeira', '$informativos_impressos', '$visitantes_ano',
+                 '$visitantes_alta', '$meses_alta', '$origem_turistas', '$origem_turistas_nacionais', '$origem_turistas_internacionais', '$ano_base', '$atrativos_mais_visitados')";
+
+                if(mysqli_query($con, $sql)){
+                    echo "Cadastro realizado com sucesso! <a href='consultar_servicos_turisticos.php'>Ver no Banco de dados.</a>";
+                } else {
+                    echo "Erro ao tentar cadastrar servicos de energia ";
+                }
+
+
+            mysqli_close($con);
+        }
+        
+        return array($msg);
+    }
+
+    function pegarServicosTuristicos($fkid_municipios){
+
+        $con = abrirConexao();
+
+            $sql = "SELECT * FROM servicos_turisticos WHERE fkid_municipios = " . $fkid_municipios . ";";
+            $result = mysqli_query($con, $sql);
+            mysqli_close($con);
+
+            return $result;
+        
+    }
+
+    function listarServicosTuristicos(){
+
+        $con = abrirConexao();
+        $sql = "SELECT * FROM servicos_turisticos;";
+        $resultadoListagem = mysqli_query($con, $sql);
+        mysqli_close($con);
+
+        return $resultadoListagem;
+    }
+
+    function EditarServicosTuristicos($fkid_municipios, $divulgacao_impressa, $folder, $revista, $jornal, $outros, $divulgacao_televisiva, $atendimento_lingua_estrangeira, $informativos_impressos,
+     $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas, $origem_turistas_nacionais, $origem_turistas_internacionais, $ano_base, $atrativos_mais_visitados){
+
+        $msg = verificarEntradasServicosTuristicos($fkid_municipios, $divulgacao_impressa, $divulgacao_televisiva, $informativos_impressos, $visitantes_ano,
+         $visitantes_alta, $meses_alta, $origem_turistas);
+
+        if($msg == ""){
+
+            $con = abrirConexao();
+
+            $sql = "UPDATE servicos_turisticos SET 
+            energia_eletrica = '$divulgacao_impressa',  
+            capacidade_kva = '$folder',
+            gerador_emergencia = '$revista',
+            capacidade_kva_gerador = '$jornal',
+            abastecimento_energia_urbana = '$outros',
+            total_abastecido_energia_urbana = '$divulgacao_televisiva',
+            entidade_responsavel_energia_urbana = '$atendimento_lingua_estrangeira',
+            abastecimento_energia_rural = '$informativos_impressos',
+            total_abastecido_energia_rural = '$visitantes_ano',
+            entidade_responsavel_energia_rural = '$visitantes_alta',
+            abastecimento_proprio_energia = '$meses_alta',
+            total_abastecimento_energia_propria = '$origem_turistas',
+            domicilios_urbanos_atendidos_energia_propria = '$origem_turistas_nacionais',
+            domicilios_rurais_atendidos_energia_propria = '$origem_turistas_internacionais',
+            entidade_responsavel_energia_propria = '$ano_base',
+            outros_tipos_abastecimento = '$atrativos_mais_visitados' WHERE fkid_municipios = '$fkid_municipios';";
+
+            if(mysqli_query($con, $sql)) {
+                echo "Alteração realizada com sucesso! Verificar atualização no <a href='consultar_servicos_turisticos.php'>banco de dados</a>";
+            } else {
+                echo "Atualização não pode ser realizada.";
+            }
+
+            mysqli_close($con);
+            return array($msg);
+        }
+    }
+
+
+    function excluirServicosTuristicos($fkid_municipios){
+        $con = abrirConexao();
+
+        $sql = "DELETE FROM servicos_turisticos WHERE fkid_municipios = ".$fkid_municipios.";";
+
+        if(mysqli_query($con, $sql)){
+            $msg = "Excluída.";
+        } else {
+            $msg = "Não excluída.";
+        }
+
+        mysqli_close($con);
+        return $msg;
+    }
 ?>
