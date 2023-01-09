@@ -1,7 +1,7 @@
 <?php
 include_once "../controles/a_conexao.php";
 
-function pegarLogin($login, $senha){
+function fazerLogin($login, $senha){
     $con = abrirConexao();
     $sql = "SELECT * FROM usuarios WHERE login =
     '$login' AND senha = '$senha'" or die("erro ao selecionar");
@@ -20,7 +20,7 @@ function pegarLogin($login, $senha){
         $senha = MD5($_POST['senha']);
       }
 
-    $verifica = pegarLogin($login, $senha);
+    $verifica = fazerLogin($login, $senha);
       if (mysqli_num_rows($verifica)<=0){
         echo"<script language='javascript' type='text/javascript'>
         alert('Login e/ou senha incorretos');window.location
@@ -28,7 +28,8 @@ function pegarLogin($login, $senha){
         die();
       }else{
         setcookie('login', $login);
-        header("Location:./pesquisar_prefeituras.php?login=". base64_encode($login));
+        setcookie('senha', $senha);
+        header("Location:./pesquisar_prefeituras.php?login=".base64_encode($login)."&".base64_encode($senha));
       }
   }
 ?>
