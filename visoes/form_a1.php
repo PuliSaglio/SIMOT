@@ -377,23 +377,23 @@
         if(isset($_POST["nome_orgao_oficial_tur"])) {
             $nome_orgao_oficial_tur = $_POST["nome_orgao_oficial_tur"];
         }
-        if(isset($_POST["logradouro"])) {
-            $logradouro = $_POST["logradouro"];
+        if(isset($_POST["logradouro_orgao_tur"])) {
+            $logradouro_orgao_tur = $_POST["logradouro_orgao_tur"];
         }
-        if(isset($_POST["bairro"])){
-            $bairro = $_POST["bairro"];
+        if(isset($_POST["bairro_orgao_tur"])){
+            $bairro_orgao_tur = $_POST["bairro_orgao_tur"];
         }
         if(isset($_POST["distrito"])){
             $distrito = $_POST["distrito"];
         }
-        if(isset($_POST["cep"])){
-            $cep = $_POST["cep"];
+        if(isset($_POST["cep_orgao_tur"])){
+            $cep_orgao_tur = $_POST["cep_orgao_tur"];
         }
-        if(isset($_POST["email"])){
-            $email = $_POST["email"];
+        if(isset($_POST["email_orgao_tur"])){
+            $email_orgao_tur = $_POST["email_orgao_tur"];
         }
-        if(isset($_POST["site"])){
-            $site = $_POST["site"];
+        if(isset($_POST["site_orgao_tur"])){
+            $site_orgao_tur = $_POST["site_orgao_tur"];
         }
         if(isset($_POST["qtd_funcionarios"])){
             $qtd_funcionarios = $_POST["qtd_funcionarios"];
@@ -402,9 +402,9 @@
             $qtd_funcionarios_superior_turismo = $_POST["qtd_funcionarios_superior_turismo"];
         }
 
-        $verificar = verificarEntradasOrgaoOficialTur($nome_orgao_oficial_tur, $logradouro, $bairro, $distrito, $cep, $email, $qtd_funcionarios, $qtd_funcionarios_superior_turismo);
+        $verificar = verificarEntradasOrgaoOficialTur($nome_orgao_oficial_tur, $logradouro_orgao_tur, $bairro_orgao_tur, $distrito, $cep_orgao_tur, $email_orgao_tur, $qtd_funcionarios, $qtd_funcionarios_superior_turismo);
 
-        $msg = cadastrarOrgaoOficialTur($fkid_municipios,$nome_orgao_oficial_tur, $logradouro, $bairro, $distrito, $cep, $email, $site, $qtd_funcionarios, $qtd_funcionarios_superior_turismo);
+        $msg = cadastrarOrgaoOficialTur($fkid_municipios, $nome_orgao_oficial_tur, $logradouro_orgao_tur, $bairro_orgao_tur, $distrito, $cep_orgao_tur, $email_orgao_tur, $site_orgao_tur, $qtd_funcionarios, $qtd_funcionarios_superior_turismo);
 
     }#Editar dados
     elseif(isset($_POST["btnEditarOrgaoOficialTur"])) {
@@ -1348,7 +1348,7 @@
         if(isset($_POST["domicilios_rurais_atendidos_sem_coleta"])){
             $domicilios_rurais_atendidos_sem_coleta = $_POST["domicilios_rurais_atendidos_sem_coleta"];
         }
-        $verificar = verificarEntradas($fkid_municipios, $coleta_seletiva, $coleta_nao_seletiva, $sem_coleta);
+        $verificar = verificarEntradasServicosLixo($fkid_municipios, $coleta_seletiva, $coleta_nao_seletiva, $sem_coleta);
         $msg = cadastrarServicosLixo($fkid_municipios, $coleta_seletiva, $total_atendido_coleta_seletiva, $domicilios_urbanos_atendidos_coleta_seletiva, 
         $domicilios_rurais_atendidos_coleta_seletiva, $entidade_responsavel_coleta_seletiva, $coleta_nao_seletiva, $total_atendido_coleta_nao_seletival, 
         $domicilios_urbanos_atendidos_coleta_nao_seletiva, $domicilios_rurais_atendidos_coleta_nao_seletiva, $entidade_responsavel_coleta_nao_seletiva, 
@@ -1586,7 +1586,7 @@
             $atrativos_mais_visitados = $_POST["atrativos_mais_visitados"];
         }
         
-        $verificar = verificarEntradasServicosTuristicos($fkid_municipios, $divulgacao_impressa, $divulgacao_televisiva, $atendimento_lingua_estrangeira, $informativos_impressos, $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas);
+        $verificar = verificarEntradasServicosTuristicos($fkid_municipios, $divulgacao_impressa, $divulgacao_televisiva, $informativos_impressos, $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas);
 
         $msg = cadastrarServicosTuristicos($fkid_municipios, $divulgacao_impressa, $folder, $revista, $jornal, $outros, $divulgacao_televisiva, $atendimento_lingua_estrangeira, $informativos_impressos, $visitantes_ano, $visitantes_alta, $meses_alta, $origem_turistas, $origem_turistas_nacionais, $origem_turistas_internacionais, $ano_base, $atrativos_mais_visitados);
     }
@@ -1830,11 +1830,11 @@
                     </tr>
                     <tr>
                         <td>Logradouro:</td>
-                        <td><input type="text" name="logradouro" id="logradouro" value=<?php echo $logradouro;?>></td>
+                        <td><input type="text" name="logradouro_orgao_tur" id="logradouro_orgao_tur" value=<?php echo $logradouro;?>></td>
                     </tr>
                     <tr>
                         <td>Bairro:</td>
-                        <td><input type="text" name="bairro" id="bairro" value=<?php echo $bairro;?>></td>
+                        <td><input type="text" name="bairro_orgao_tur" id="bairro_orgao_tur" value=<?php echo $bairro;?>></td>
                     </tr>
                     <tr>
                         <td>Distrito:</td>
@@ -1842,15 +1842,15 @@
                     </tr>
                     <tr>
                         <td>CEP:</td>
-                        <td><input type="number" name="cep" id="cep" value=<?php echo $cep;?>></td>
+                        <td><input type="number" name="cep_orgao_tur" id="cep_orgao_tur" value=<?php echo $cep;?>></td>
                     </tr>
                     <tr>
                         <td>Email:</td>
-                        <td><input type="email" name="email" id="email" value=<?php echo $email;?>></td>
+                        <td><input type="email" name="email_orgao_tur" id="email_orgao_tur" value=<?php echo $email;?>></td>
                     </tr>
                     <tr>
                         <td>Site:</td>
-                        <td><input type="text" name="site" id="site" value=<?php echo $site;?>></td>
+                        <td><input type="text" name="site_orgao_tur" id="site_orgao_tur" value=<?php echo $site;?>></td>
                     </tr>
                     <tr>
                         <td>Quantidade de funcionários:</td>

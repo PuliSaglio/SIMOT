@@ -54,23 +54,23 @@
         $result = listarServicosTuristicos();
 
         while($registro = mysqli_fetch_array($result)){
-            $fkid_municipios = $row['fkid_municipios'];
-            $divulgacao_impressa = $row['divulgacao_impressa']; 
-            $folder = $row['folder'];
-            $revista = $row['revista'];
-            $jornal = $row['jornal'];
-            $outros = $row['outros'];
-            $divulgacao_televisiva = $row['divulgacao_televisiva'];
-            $atendimento_lingua_estrangeira = $row['atendimento_lingua_estrangeira'];
-            $informativos_impressos = $row['informativos_impressos'];
-            $visitantes_ano = $row['visitantes_ano'];
-            $visitantes_alta = $row['visitantes_alta'];
-            $meses_alta = $row['meses_alta'];
-            $origem_turistas = $row['origem_turistas'];
-            $origem_turistas_nacionais = $row['origem_turistas_nacionais'];
-            $origem_turistas_internacionais = $row['origem_turistas_internacionais'];
-            $ano_base = $row['ano_base'];
-            $atrativos_mais_visitados = $row['atrativos_mais_visitados'];
+            $fkid_municipios = $registro['fkid_municipios'];
+            $divulgacao_impressa = $registro['divulgacao_impressa']; 
+            $folder = $registro['folder'];
+            $revista = $registro['revista'];
+            $jornal = $registro['jornal'];
+            $outros = $registro['outros'];
+            $divulgacao_televisiva = $registro['divulgacao_televisiva'];
+            $atendimento_lingua_estrangeira = $registro['atendimento_lingua_estrangeira'];
+            $informativos_impressos = $registro['informativos_impressos'];
+            $visitantes_ano = $registro['visitantes_ano'];
+            $visitantes_alta = $registro['visitantes_alta'];
+            $meses_alta = $registro['meses_alta'];
+            $origem_turistas = $registro['origem_turistas'];
+            $origem_turistas_nacionais = $registro['origem_turistas_nacionais'];
+            $origem_turistas_internacionais = $registro['origem_turistas_internacionais'];
+            $ano_base = $registro['ano_base'];
+            $atrativos_mais_visitados = $registro['atrativos_mais_visitados'];
             
             
 

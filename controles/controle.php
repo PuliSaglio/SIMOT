@@ -157,23 +157,23 @@
 
 
     //ORGAO OFICIAL DE TURISMO!!!
-    function verificarEntradasOrgaoOficialTur($nome_orgao_oficial_tur, $logradouro, $bairro, $distrito, $cep, $email, $qtd_funcionarios, $qtd_funcionarios_superior_turismo){
+    function verificarEntradasOrgaoOficialTur($nome_orgao_oficial_tur, $logradouro_orgao_tur, $bairro_orgao_tur, $distrito, $cep_orgao_tur, $email_orgao_tur, $qtd_funcionarios, $qtd_funcionarios_superior_turismo){
         if($nome_orgao_oficial_tur == ""){
             return "Informe o nome do orgao de turismo.";
         }
-        if($logradouro == ""){
+        if($logradouro_orgao_tur == ""){
             return "Informe o logradouro.";
         }
-        if($bairro == "") {
+        if($bairro_orgao_tur == "") {
             return "Informe o bairro.";
         }
         if($distrito == "") {
             return "Informe o distrito";
         }
-        if($cep == ""){
+        if($cep_orgao_tur == ""){
             return "Informe o CEP.";
         }
-        if($email == ""){
+        if($email_orgao_tur == ""){
             return "Informe o email.";
         }
         if($qtd_funcionarios == ""){
@@ -187,13 +187,13 @@
     }
 
 
-    function cadastrarOrgaoOficialTur($fkid_municipios, $nome_orgao_oficial_tur, $logradouro, $bairro, $distrito, $cep, $email, $site, $qtd_funcionarios, $qtd_funcionarios_superior_turismo){
+    function cadastrarOrgaoOficialTur($fkid_municipios, $nome_orgao_oficial_tur, $logradouro_orgao_tur, $bairro_orgao_tur, $distrito, $cep_orgao_tur, $email_orgao_tur, $site_orgao_tur, $qtd_funcionarios, $qtd_funcionarios_superior_turismo){
 
-        $msg = verificarEntradasOrgaoOficialTur($nome_orgao_oficial_tur, $logradouro, $bairro, $distrito, $cep, $email, $qtd_funcionarios, $qtd_funcionarios_superior_turismo);
+        $msg = verificarEntradasOrgaoOficialTur($nome_orgao_oficial_tur, $logradouro_orgao_tur, $bairro_orgao_tur, $distrito, $cep_orgao_tur, $email_orgao_tur, $qtd_funcionarios, $qtd_funcionarios_superior_turismo);
 
         if($msg == "") {
             $con = abrirConexao();
-                $sql = "INSERT INTO orgao_oficial_tur(fkid_municipios, nome_orgao_oficial_tur, logradouro, bairro, distrito, cep, email, site, qtd_funcionarios, qtd_funcionarios_superior_turismo) VALUES ('$fkid_municipios','$nome_orgao_oficial_tur', '$logradouro', '$bairro', '$distrito', '$cep', '$email', '$site', '$qtd_funcionarios', '$qtd_funcionarios_superior_turismo')";
+                $sql = "INSERT INTO orgao_oficial_tur(fkid_municipios, nome_orgao_oficial_tur, logradouro_orgao_tur, bairro_orgao_tur, distrito, cep_orgao_tur, email_orgao_tur, site_orgao_tur, qtd_funcionarios, qtd_funcionarios_superior_turismo) VALUES ('$fkid_municipios','$nome_orgao_oficial_tur', '$logradouro_orgao_tur', '$bairro_orgao_tur', '$distrito', '$cep_orgao_tur', '$email_orgao_tur', '$site_orgao_tur', '$qtd_funcionarios', '$qtd_funcionarios_superior_turismo')";
 
                 if(mysqli_query($con, $sql)){
                     echo "Cadastro realizado com sucesso! <a href='consultar_orgao_oficial_tur.php'>Consultar Orgaos cadastrados.</a>";
@@ -230,9 +230,9 @@
         return $resultadoListagem;
     }
 
-    function editarOrgaoOficialTur($fkid_municipios, $nome_orgao_oficial_tur, $logradouro, $bairro, $distrito, $cep, $email, $site, $qtd_funcionarios, $qtd_funcionarios_superior_turismo){
+    function editarOrgaoOficialTur($fkid_municipios, $nome_orgao_oficial_tur, $logradouro_orgao_tur, $bairro_orgao_tur, $distrito, $cep_orgao_tur, $email_orgao_tur, $site_orgao_tur, $qtd_funcionarios, $qtd_funcionarios_superior_turismo){
 
-        $msg = verificarEntradasOrgaoOficialTur($nome_orgao_oficial_tur, $logradouro, $bairro, $distrito, $cep, $email, $qtd_funcionarios, $qtd_funcionarios_superior_turismo);
+        $msg = verificarEntradasOrgaoOficialTur($nome_orgao_oficial_tur, $logradouro_orgao_tur, $bairro_orgao_tur, $distrito, $cep_orgao_tur, $email_orgao_tur, $qtd_funcionarios, $qtd_funcionarios_superior_turismo);
 
         if($msg == ""){
 
@@ -240,12 +240,12 @@
 
             $sql = "UPDATE orgao_oficial_tur SET 
             nome_orgao_oficial_tur = '$nome_orgao_oficial_tur',  
-            logradouro = '$logradouro',
-            bairro = '$bairro',
+            logradouro_orgao_tur = '$logradouro_orgao_tur',
+            bairro_orgao_tur = '$bairro_orgao_tur',
             distrito = '$distrito',
-            cep = '$cep',
-            email = '$email',
-            site = '$site',
+            cep_orgao_tur = '$cep_orgao_tur',
+            email_orgao_tur = '$email_orgao_tur',
+            site_orgao_tur = '$site_orgao_tur',
             qtd_funcionarios = '$qtd_funcionarios',
             qtd_funcionarios_superior_turismo = '$qtd_funcionarios_superior_turismo' WHERE fkid_municipios = '$fkid_municipios';";
 
