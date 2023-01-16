@@ -1663,6 +1663,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario A1</title>
+    <link rel="stylesheet" href="../templates/estilo.css">
     <style>
         .prefeituras, .orgao_oficial_tur, .instancias, .historico, .caracteristicas, .abastecimentoAgua, .coletaDeposicaoEsgoto, .servicosEnergia, .servicosLixo, .servicosComunicacao, .servicosTuristicos{
             display:flex;
