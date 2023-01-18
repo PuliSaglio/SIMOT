@@ -48,12 +48,81 @@ function fazerLogin($login, $senha){
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../templates/estilo.css">
   <link rel="stylesheet" href="../templates/style.css">
   <style>
 
   </style>
+  <title>Login</title>
 </head>
 <body>
+<header id="header" class="header has-sticky sticky-jump sticky-hide-on-scroll">
+            <div class="header-wrapper">
+                <div id="masthead" class="header-main  ">
+                    <div class="header-inner flex-row container logo-left" role="navigation">
+
+                        <!-- Logo -->
+                        <div id="logo" class="flex-col logo">
+                            <!-- Header logo -->
+                            <a href="../templates/media/logosimot01.jpeg"
+                                title="SIMOT" rel="home">
+                                <img width="200" height="154"
+                                    src="../templates/media/logosimot01.jpeg"
+                                    class="header_logo header-logo" alt="Simot" /><img width="200" height="154"
+                                    src="../templates/simot.html"
+                                    class="header-logo-dark" alt="Simot" /></a>
+                        </div>
+
+                        <!-- Mobile Left Elements -->
+                        <div class="flex-col show-for-medium flex-left">
+                            <ul class="mobile-nav nav nav-left ">
+                            </ul>
+                        </div>
+
+                        <!-- Left Elements -->
+                        <div class="flex-col hide-for-medium flex-left flex-grow">
+                            <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-spacing-large">
+                            </ul>
+                        </div>
+
+                        <!-- Right Elements -->
+                        <div class="flex-col hide-for-medium flex-right">
+                            <ul class="header-nav header-nav-main nav nav-right  nav-size-medium nav-spacing-large">
+
+                                <li id="menu-item-13792" 
+                                    class="menuborder contato-topo menu-item menu-item-type-post_type menu-item-object-page menu-item-13792 menu-item-design-default">
+                                    <a href="http://localhost/SIMOT/templates/simot.html"
+                                     class="nav-top-link">Voltar</a></li>
+                          
+                            </ul>
+                        </div>
+
+                        <!-- Mobile Right Elements -->
+                        <div class="flex-col show-for-medium flex-right">
+                            <ul class="mobile-nav nav nav-right ">
+                                <li class="nav-icon has-icon">
+                                    <a href="#" data-open="#main-menu" data-pos="left" data-bg="main-menu-overlay"
+                                        data-color="dark" class="is-small" aria-label="Menu" aria-controls="main-menu"
+                                        aria-expanded="false">
+
+                                        <i class="icon-menu"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div><!-- .header-inner -->
+
+                </div><!-- .header-main -->
+                <div class="header-bg-container fill">
+                    <div class="header-bg-image fill"></div>
+                    <div class="header-bg-color fill"></div>
+                </div>
+            </div><!-- header-wrapper-->
+
+            <!-- <script src="//code.jivosite.com/widget/HlRFWX5HNL" async></script> -->
+
+        </header>
   <main class="main-content-container">
     <div class="search-container centralizar">
       <div class="container">
@@ -68,10 +137,13 @@ function fazerLogin($login, $senha){
                 <td><input type="password" name="senha" id="senha" class="search-input"><br><br></td>
               </tr>
               <tr>
-                <td colspan="2"> <input type="submit" value="entrar" id="entrar" name="entrar" class="search-button"><br></td>
+                <td colspan="2"> <input type="submit" value="Entrar" id="Entrar" name="Entrar" class="search-button"><br></td>
               </tr>
               <tr>
-                <td colspan="2"> <a href="cadastro.html">Cadastre-se</a></td>
+                <td><p>Não tem um cadastro no nosso site??</p></td>
+              </tr>
+              <tr>
+                <td colspan="2"> <a href="cadastro.html"><button type="button"class="btn btn-outline-success">Cadastre-se aqui</button></a></td>
               </tr>
             </table>
         </form>
