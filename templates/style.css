@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+    padding: 15%;
+    background-color:white;
+
+}
+form{
+    border:15%
+}
+
+ul{
+    margin:10px;
+}
+li{
+    font-size:25px;
+    list-style:none;
+    margin:3px
+    
+}
+button{
+    color: green;
+    font-style:bolder;
+
+}
+
+input[type=submit],
+input[type=submit].button,
+input[type=submit],
+.primary {
+    font-size:20px;
+    background-color: green
+}
