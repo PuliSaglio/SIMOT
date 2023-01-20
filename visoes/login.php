@@ -137,13 +137,13 @@ function fazerLogin($login, $senha){
                 <td><input type="password" name="senha" id="senha" class="search-input"><br><br></td>
               </tr>
               <tr>
-                <td colspan="2"> <input type="submit" value="Entrar" id="Entrar" name="Entrar" class="search-button"><br></td>
+                <td colspan="2"> <input type="submit" value="entrar" id="entrar" name="entrar" class="search-button"><br></td>
               </tr>
               <tr>
                 <td><p>Não tem um cadastro no nosso site??</p></td>
               </tr>
               <tr>
-                <td colspan="2"> <a href="cadastro.html"><button type="button"class="btn btn-outline-success">Cadastre-se aqui</button></a></td>
+                <td colspan="2"> <a href="cadastro.php"><button type="button"class="btn btn-outline-success">Cadastre-se aqui</button></a></td>
               </tr>
             </table>
         </form>

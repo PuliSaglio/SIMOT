@@ -62,9 +62,9 @@ if (isset($_POST['cadastrar'])) {
   <style>
 
   </style>
-</head>
-<body>
-<header id="header" class="header has-sticky sticky-jump sticky-hide-on-scroll">
+  </head>
+  <body>
+      <header id="header" class="header has-sticky sticky-jump sticky-hide-on-scroll">
             <div class="header-wrapper">
                 <div id="masthead" class="header-main  ">
                     <div class="header-inner flex-row container logo-left" role="navigation">
@@ -130,11 +130,30 @@ if (isset($_POST['cadastrar'])) {
 
             <!-- <script src="//code.jivosite.com/widget/HlRFWX5HNL" async></script> -->
 
-        </header>
-<form action="cadastro.php" method="POST">
-    <label>Login:</label><input type="text" name="login" id="login"><br>
-    <label>Senha:</label><input type="password" name="senha" id="senha"><br>
-    <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
-</form>
-</body>
+      </header>
+
+         <main class="main-content-container">
+            <div class="search-container centralizar">
+               <div class="container">
+                  <form class="search-form"  action="cadastro.php" method="POST" >
+                    <table>
+                     <tr>
+                        <td><label>Login:</label></td>
+                       <td><input type="text" name="login" id="login" class="search-input" ><br></td>
+                     </tr>
+                     <tr>
+                       <td><label>Senha:</label></td>
+                        <td><input type="password" name="senha" id="senha" class="search-input"><br><br></td>
+                     </tr>
+                     <tr>
+                       <td colspan="2"> <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar" class="search-button"><br></td>
+                     </tr>
+                  
+                    </table>
+                  </form>
+               </div>
+             </div>
+
+           </main>
+  </body>
 </html>
