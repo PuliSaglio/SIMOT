@@ -6,8 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        button{
+
+        }
+    </style>
 </head>
 <body>
-    <p><a href="visoes/login.php">LOGIN</a></p>
+    <p><a href="templates/simot.html"><button>inicio<button></a></p>
 </body>
 </html> 

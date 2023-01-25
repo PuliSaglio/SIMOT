@@ -1,3 +1,10 @@
+.form_login{
+    background: rgb(132, 75, 75);
+    max-width: 200px;
+
+}
+
+
 #sb_instagram,
 #sb_instagram.sbi_fixed_height {
     -webkit-box-sizing: border-box;
@@ -12684,6 +12691,7 @@ ul.menu>li.has-child,
 
 .footer-wrapper {
     width: 100%;
+    max-width: ;
     position: relative
 }
 
@@ -18082,8 +18090,8 @@ li {
     color: #fff !important
 }
 
-.font-weight-400 {
-    font-weight: 400
+.font-weight-200 {
+    font-weight: 200
 }
 
 .font-weight-normal {
